@@ -1,6 +1,6 @@
 //set global variables
 int ledPin = 2;
-int button = 7;
+int button = 3;
 bool onOff = false;
 bool prevButtonState = LOW;
 
