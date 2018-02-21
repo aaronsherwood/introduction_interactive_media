@@ -1,5 +1,7 @@
-const int knobPin = A0;
+#include <vector.h>
 
+const int knobPin = A0;
+vector <int> mynums;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
