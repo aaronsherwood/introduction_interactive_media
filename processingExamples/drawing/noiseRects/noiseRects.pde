@@ -1,17 +1,14 @@
+void setup() {
+  size(640, 360);
+  noiseSeed(0);
+  noFill();
+  stroke(0, 50);
+  rectMode(CENTER);
+  noLoop();
+}
 
-size(640, 360);
-
-background(255);
-noFill();
-noiseSeed(0);
-stroke(0,50);
-int sections=width/300;
-for (int i=0; i<width; i+=sections) {
-  println(i);
-  pushMatrix();
-  float noiseValue=noise(i*.01);
-  translate(i,noiseValue*250);
-  rotate(noiseValue);
-  rect(0, 0,2, 100);
-  popMatrix();
+void draw() {
+  background(255);
+  //choose between modes 1,2,3,4,5
+  mode(5);
 }
