@@ -1,22 +1,49 @@
-Rotater[] rotaters;
+PFont f;
+color red;
+float x, y;
+
+String message= "Alternative FACTS...";
+LetterRotater[] rotaters;
 
 void setup() {
   size(640, 360);
-  rotaters = new Rotater[200];
-  for (int i=0; i< rotaters.length; i++) {
-    float x = random(width);
-    float y = random(height);
-    float lineDistance = random(20, 50);
-    rotaters[i]= new Rotater(x, y, i, lineDistance);
+  f = createFont("Monaco", 42);
+  textFont(f, 42);
+  red=color(255, 0, 0);
+  x=width/2 - textWidth(message)/2;
+  y=height/2;
+  rotaters= new LetterRotater[message.length()];
+  for (int i=0; i<message.length(); i++) {
+    char c = message.charAt(i);
+    float w = x+textWidth(c)*i;
+    rotaters[i]= new LetterRotater(w, y, i, random(10, 85), c);
   }
 }
 
 void draw() {
   background(255);
-  stroke(255, 0, 0, 75);
-  for (Rotater r : rotaters) {
-    r.rotate();
-    r.distance(rotaters);
+  fill(red);
+  for (LetterRotater l : rotaters) {
+    l.drawChar();
+    l.rotate();
+    stroke(red, 50);
+    l.checkMouse();
+    l.distance(rotaters);
+  }
+}
+
+class LetterRotater extends Rotater {
+  char c;
+  LetterRotater(float _x, float _y, int i, float ld, char _c) {
+    super(_x, _y, i, ld);
+    c = _c;
+    x=_x;
+    y=_y;
+    radius=50;
+  }
+
+  void drawChar() {
+    text(c, x, y);
   }
 }
 
@@ -47,7 +74,6 @@ class Rotater {
     angle+=speed*direction;
     speed*=.98;
     acceleration=0;
-    //rect(x, y, 2, 2);
   }
 
   void distance(Rotater[] rotaters) {
@@ -63,7 +89,14 @@ class Rotater {
 
   void checkMouse() {
     if (dist(mouseX, mouseY, x, y)<100 && mouseX!=pmouseX && mouseY!=pmouseY) {
-      acceleration=.002;
+      acceleration=.005;
     }
+  }
+}
+
+void mousePressed() {
+  for (LetterRotater l : rotaters) {
+    l.angle=0;
+    l.speed=0;
   }
 }

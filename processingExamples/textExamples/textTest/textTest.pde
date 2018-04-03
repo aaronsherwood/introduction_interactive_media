@@ -6,16 +6,15 @@ String message= "Alternative FACTS...";
 
 void setup(){
   size(640,360);
-  f = createFont("FranklinGoth-ExtCondensed", 32);
+  f = createFont("Monaco", 32);
+  textFont(f,32);
   red=color(255,0,0);
   x=width;
   y=height/2;
 }
 
 void draw(){
-  background(255);
-  //which font
-  textFont(f,32);
+  background(255); 
   //color
   fill(red);
   textAlign(LEFT);

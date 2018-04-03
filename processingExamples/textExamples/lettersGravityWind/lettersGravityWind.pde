@@ -4,12 +4,12 @@ float x,y;
 ArrayList<Letter> letters = new ArrayList<Letter>();
 float globalWind=0;
 int index=0;
-String [] message = {"Let's eat!!", "Fooooooood.....", "NOW"};
+String [] message = {"Aternative", "FACTS", "..."};
 int fontSize = 64;
 
 void setup(){
   size(640,360);
-  f = createFont("courier", fontSize);
+  f = createFont("Monaco", fontSize);
   textAlign(LEFT);
   textFont(f,fontSize);
   red=color(255,0,0);
