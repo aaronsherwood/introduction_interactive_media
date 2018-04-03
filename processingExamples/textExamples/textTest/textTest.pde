@@ -2,7 +2,7 @@ PFont f;
 color red;
 float x,y;
 
-String message= "fooooood";
+String message= "Alternative FACTS...";
 
 void setup(){
   size(640,360);
@@ -20,7 +20,7 @@ void draw(){
   fill(red);
   textAlign(LEFT);
   text(message,x,y);
-  x-=1;
+  x-=2;
   if (x<0-textWidth(message))
     x=width;
   //for (int i=0; i<message.length(); i++){
