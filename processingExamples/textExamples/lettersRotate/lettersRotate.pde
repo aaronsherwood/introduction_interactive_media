@@ -50,7 +50,6 @@ class LetterRotater extends Rotater {
 class Rotater {
   float centerX, centerY, x, y, angle, radius, speed, lineDistance, acceleration, direction;
   int index;
-  boolean drawLine;
   Rotater(float _x, float _y, int i, float ld) {
     centerX= _x;
     centerY=_y;
@@ -59,7 +58,6 @@ class Rotater {
     speed = 0;
     index = i;
     lineDistance = ld;
-    drawLine = false;
     acceleration=0;
     direction=-1;
     float coinflip = random(1);
