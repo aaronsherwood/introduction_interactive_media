@@ -1,20 +1,22 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.write(0);
 }
 
 void loop() {
-  if(Serial.available()>0){
-    int inByte=Serial.read();
-    int sensor = analogRead(A0);
-    delay(0);
-    sensor/=4;
-    Serial.write(sensor);
-  }
+  // put your main code here, to run repeatedly:
+  int sensor = analogRead(A0);
+  delay(0);
+  sensor/=4;
+  Serial.write(sensor);
 }
 
 /* Processing Code
+
+
+import processing.serial.*;
+
+Serial myPort;
 
 int xPos=0;
 
@@ -33,7 +35,6 @@ void draw(){
 
 void serialEvent(Serial myPort){
   xPos=myPort.read();
-  myPort.write(0);
 }
 
 

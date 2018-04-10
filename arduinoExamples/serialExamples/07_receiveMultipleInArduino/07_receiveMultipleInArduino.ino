@@ -9,10 +9,6 @@ void setup() {
 }
 
 void loop() {
-  
-}
-
-void serialEvent(){
   while (Serial.available()) {
     right = Serial.parseInt();
     left = Serial.parseInt();
@@ -28,7 +24,6 @@ void serialEvent(){
       Serial.println(sensor2);
     }
   }
-
 }
 
 /*
