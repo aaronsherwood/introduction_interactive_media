@@ -8,7 +8,7 @@ void loop() {
   if(Serial.available()>0){
     int inByte=Serial.read();
     int sensor = analogRead(A0);
-    delay(0);
+    delay(1);
     sensor/=4;
     Serial.write(sensor);
   }

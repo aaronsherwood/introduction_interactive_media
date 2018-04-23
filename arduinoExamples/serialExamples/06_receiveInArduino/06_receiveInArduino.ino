@@ -2,13 +2,13 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("0,0");
-  pinMode(3,OUTPUT);
+  pinMode(2,OUTPUT);
 }
 
 void loop() {
   if(Serial.available()>0){
     int inByte=Serial.read();
-    digitalWrite(3,inByte);
+    digitalWrite(2,inByte);
     int sensor = analogRead(A0);
     delay(0);
     int sensor2 = analogRead(A1);
