@@ -25,7 +25,7 @@ void draw() {
     //make 2 circles for every point
     for (int j=0; j<2; j++){
       float diam = random(5,15);
-      ellipse(pnts[i].x+random(-3,3), pnts[i].y+random(-7,7), diam, diam);
+      ellipse(pnts[i].x+random(-3,3), pnts[i].y+random(-3,3), diam, diam);
     }
   }
   popMatrix();
