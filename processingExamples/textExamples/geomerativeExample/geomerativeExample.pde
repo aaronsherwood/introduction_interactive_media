@@ -6,8 +6,11 @@ void setup() {
   size(640, 360);
 
   RG.init(this);
+  // set the font, the size, and left, center, or right adjusted
   font = new RFont("Franklin Goth Ext Condensed.ttf", 200, RFont.CENTER);
-  pnts = getPoints("ZAP");
+  
+  // get the points along a String
+  pnts = getPoints("Bubbles");
   
   noFill();
   noLoop();
@@ -19,16 +22,19 @@ void draw() {
   pushMatrix();
   translate(width/2, height/1.5);
   for (int i=0; i<pnts.length; i++) {
-    for (int j=0; j<5; j++){
-      ellipse(pnts[i].x+random(-5,5), pnts[i].y+random(-5,5), random(4,15), random(4,15));
+    //make 2 circles for every point
+    for (int j=0; j<2; j++){
+      float diam = random(5,15);
+      ellipse(pnts[i].x+random(-3,3), pnts[i].y+random(-7,7), diam, diam);
     }
   }
   popMatrix();
 }
 
-
+// function that returns an array of RPoints based on a string
 RPoint[] getPoints(String str) {
-  RCommand.setSegmentLength (10);
+  // change this number to change the resolution of points outlining the circle
+  RCommand.setSegmentLength(10);
   RCommand.setSegmentator(RCommand.UNIFORMLENGTH);
   RGroup grp;
   grp = font.toGroup(str);
