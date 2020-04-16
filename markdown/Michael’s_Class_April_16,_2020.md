@@ -7,14 +7,7 @@
 
 what is going on? how would you make this?
 
-https://player.vimeo.com/video/2934812
-
-
 [https://vimeo.com/2934812](https://vimeo.com/2934812)
-
-
-https://player.vimeo.com/video/9852175
-
 
 [https://vimeo.com/9852175](https://vimeo.com/9852175)
 
