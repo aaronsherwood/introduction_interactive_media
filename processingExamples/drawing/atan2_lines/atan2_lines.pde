@@ -8,7 +8,8 @@ void draw() {
     for (int x=0; x<width; x+=30) {
       float xVec= mouseX-x;
       float yVec = mouseY-y;
-      float angle = atan2(yVec, xVec);
+      PVector pvec = new PVector(xVec, yVec);
+      float angle = pvec.heading(); //or atan2(yVec, xVec);
       pushMatrix();
       translate(x, y);
       rotate(angle);
