@@ -24,7 +24,7 @@ void draw(){
   //howManyCirclesY = mouseX/64+1;
   
   // make the for loop easy to read
-  // if wwe want 5 circles on screen we need to take width (640) and divide by 5 to place a circle every 128 pixels
+  // if we want 5 circles on screen we need to take width (640) and divide by 5 to place a circle every 128 pixels
   int limitX = width/howManyCirclesX;
   int limitY = height/howManyCirclesY;
   
