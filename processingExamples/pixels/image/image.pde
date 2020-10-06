@@ -1,9 +1,10 @@
 PImage img;
 
 void setup(){
-  img = loadImage(
+  size(640, 640);
+  img = loadImage("baboon.png");
 }
 
 void draw(){
-  
+  image(img, 0, 0, width, height);
 }

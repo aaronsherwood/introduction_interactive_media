@@ -47,18 +47,18 @@ void rhythm() {
      if(speed<10) exit();
     }
     if (counter%2==0) {
-      //sine.play(midiToFreq(31), 5);
-      //env.play(sine, attackTime, sustainTime, sustainLevel, releaseTime); 
+      sine.play(midiToFreq(31), 5);
+      env.play(sine, attackTime, sustainTime, sustainLevel, releaseTime); 
     }
     if (counter%(int)random(1, 5)==0) {
-      //sine.play(freq, .08);
-      //env1.play(sine, attackTime, sustainTime, sustainLevel, releaseTime);
-      //noise.play();
-      //env1.play(noise, attackTime, sustainTime, sustainLevel, releaseTime);
+      sine.play(freq, .08);
+      env1.play(sine, attackTime, sustainTime, sustainLevel, releaseTime);
+      noise.play();
+      env1.play(noise, attackTime, sustainTime, sustainLevel, releaseTime);
     }
     if (counter%3==0) {
-      //tri.play(100, 1);
-      //env2.play(tri, attackTime, sustainTime, sustainLevel, releaseTime);
+      tri.play(100, 1);
+      env2.play(tri, attackTime, sustainTime, sustainLevel, releaseTime);
     }
     freq-=5;
     counter=(counter+1)%32;
