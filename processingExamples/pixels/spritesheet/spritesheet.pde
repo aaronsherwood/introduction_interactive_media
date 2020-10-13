@@ -9,7 +9,7 @@ int speed = 3;
 void setup() {
   fullScreen();
   spritesheet = loadImage("walking.png");
-  sprites = new PImage[4][12]; // 12 images across, 5 down, in the spritesheet
+  sprites = new PImage[4][12]; // 12 images across, 4 down, in the spritesheet
 
   int w = spritesheet.width/12;
   int h = spritesheet.height/4;
