@@ -12,7 +12,6 @@ float sustainLevel = 0.3;
 float releaseTime = 0.02;
 int speed=150; // higher numbers are slower
 int trigger;
-SoundFile soundfile;
 int counter = 0;
 int backgroundHue = 255;
 float[] lineWidths = {.2, .2, .2};
