@@ -21,7 +21,7 @@ void loop()
 {
   for (int i=0; i< 3; i++) {
     // this is the juicy part
-    // i'm taking the position of the circle and finding the distance of each LED from the center of our bell curve
+    // i'm taking the position and finding the distance of each LED from the center of our bell curve
     float distance = abs(ledPos[i]-bellCurveCenter);
     // this is the formula for the bell curve, multiply by 255 to put in the proper range for brightness
     float brightness = exp(-0.5*pow(distance/spread, 2.))*255;
