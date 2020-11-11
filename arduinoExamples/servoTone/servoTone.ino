@@ -44,7 +44,7 @@ void loop() {
     servo.write(servoPos);
   } 
   
-  // else if not triggereing the servo, then every 10 seconds move the servo arm back a little bit
+  // else if not triggereing the servo, then every 10 milliseconds move the servo arm back a little bit
   // can't do it every frame as that is too fast for the servo
   else if (currentTime % 10 == 0) {
     servoPos -= 1;
