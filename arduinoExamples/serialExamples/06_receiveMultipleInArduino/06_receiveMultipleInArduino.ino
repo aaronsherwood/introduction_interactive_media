@@ -4,31 +4,26 @@ int right = 0;
 void setup() {
   Serial.begin(9600);
   Serial.println("0,0");
-  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
   pinMode(5, OUTPUT);
 }
 
 void loop() {
-  
-}
-
-void serialEvent(){
   while (Serial.available()) {
     right = Serial.parseInt();
     left = Serial.parseInt();
     if (Serial.read() == '\n') {
-      digitalWrite(3, right);
+      digitalWrite(2, right);
       digitalWrite(5, left);
       int sensor = analogRead(A0);
-      delay(0);
+      delay(1);
       int sensor2 = analogRead(A1);
-      delay(0);
+      delay(1);
       Serial.print(sensor);
       Serial.print(',');
       Serial.println(sensor2);
     }
   }
-
 }
 
 /*

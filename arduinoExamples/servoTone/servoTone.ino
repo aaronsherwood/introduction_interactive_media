@@ -9,7 +9,7 @@ int durations[10];
 
 void setup() {
   servo.attach(2);
-  pinMode(3, OUTPUT);
+  
   Serial.begin(9600);
 
   // set the durations with a random coinflip
@@ -39,7 +39,7 @@ void loop() {
   }
 
   // do the servo at half speed
-  if (currentTime % (rate * 2) == 0  ) {
+  if (currentTime % (rate * 4) == 0  ) {
     servoPos = 30;
     servo.write(servoPos);
   } 

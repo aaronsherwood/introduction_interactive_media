@@ -6,7 +6,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   int sensor = analogRead(A0);
-  delay(0);
+  delay(1);
   sensor/=4;
   Serial.write(sensor);
 }

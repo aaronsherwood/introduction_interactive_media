@@ -20,7 +20,7 @@ void setup() {
 
 void loop() {
   int rate = 1000/durations[whichNote];
- 
+  
   if (millis() % rate == 0) {
     tone(speakerPin, notes[whichNote], random(100,400));
     whichNote = random(10);
