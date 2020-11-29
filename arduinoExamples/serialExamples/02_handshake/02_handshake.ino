@@ -6,7 +6,7 @@ void setup() {
 
 void loop() {
   if(Serial.available()>0){
-    int inByte=Serial.read();
+    Serial.read();
     int sensor = analogRead(A0);
     delay(1);
     sensor/=4;

@@ -18,7 +18,7 @@ void loop() {
 
     if (x==104) //ascii number for h
       ledState = HIGH;
-    if (x==108) //ascii number for l
+    else if (x==108) //ascii number for l
       ledState = LOW;
       
     digitalWrite(2,ledState);
