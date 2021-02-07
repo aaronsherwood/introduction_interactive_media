@@ -5,14 +5,14 @@ String s = "Circular stibro ";
 
 // declare an array of Circle objects, called letters
 // set it to be the same size as the length of the String
-Circle letters[] = new Circle[s.length()];
+Letter letters[] = new Letter[s.length()];
 PFont f;
 
 void setup(){
   size(640, 460);
-  f = createFont("Monaco", 25);
+  f = createFont("Courier New", 25);
   textFont(f);
-  
+ 
   // radius of the  circle of letters
   int radius = 100;
   
@@ -38,7 +38,7 @@ void setup(){
      float y = sin(angle)*radius + circleCenterY;
      
      //make a new Circle object for each letter
-     letters[i] = new Circle(x, y, s.charAt(i));
+     letters[i] = new Letter(x, y, s.charAt(i));
   }
 }
 

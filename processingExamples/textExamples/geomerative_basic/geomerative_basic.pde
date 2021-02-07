@@ -1,7 +1,7 @@
 import geomerative.*;
 RFont font;
 RPoint[] pnts;
-String phrase = "fake news";
+String phrase = "Circles";
 float xOffset = 0;
 
 void setup() {
@@ -19,7 +19,7 @@ void setup() {
   pnts = grp.getPoints();
 
   // to set the word in the middle of the screen
-  // get the size of the phrase usbtracted from the width of the screen
+  // get the size of the phrase subtracted from the width of the screen
   // this is the amount left over
   xOffset = width - grp.getBottomRight().x - grp.getBottomLeft().x;
   // divide that by two to center it

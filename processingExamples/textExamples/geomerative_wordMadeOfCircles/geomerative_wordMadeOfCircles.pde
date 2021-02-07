@@ -1,6 +1,6 @@
 import geomerative.*;
 RFont font;
-String phrase = "fake news";
+String phrase = "Circles";
 float xOffset = 0;
 
 RPoint[] pnts;
@@ -39,7 +39,7 @@ void draw() {
     float x = pnts[i].x + moveIt + xOffset;
     float y = pnts[i].y + moveIt + height/2;
 
-    // dividing makes it invert it's action
+    // dividing makes it invert it's action, sort of
     float diam = 2500/dist(x, y, mouseX, mouseY);
     diam = constrain(diam, 7, 70);
 

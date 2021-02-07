@@ -1,9 +1,9 @@
-class Circle {
+class Letter {
   float x, y;
   float xSpeed, ySpeed;
   char letter;
 
-  Circle(float _x, float _y, char _c) {
+  Letter(float _x, float _y, char _c) {
     x = _x;
     y = _y;
     xSpeed = ySpeed = 0;
@@ -18,8 +18,6 @@ class Circle {
   }
 
   void display() {
-    //fill(255);
-    //ellipse(x, y, 40, 40);
     fill(0);
     text(letter,x,y);
   }

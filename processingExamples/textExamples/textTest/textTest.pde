@@ -6,7 +6,7 @@ String message= "Alternative FACTS...";
 
 void setup(){
   size(640,360);
-  f = createFont("Monaco", 32);
+  f = createFont("Courier New", 32);
   textFont(f,32);
   red=color(255,0,0);
   x=width;
@@ -24,7 +24,7 @@ void draw(){
     x=width;
   //for (int i=0; i<message.length(); i++){
   //  char c = message.charAt(i);
-  //  float letterX=x+textWidth(c)*(i-1);
+  //  float letterX=x+textWidth(c)*(i);
   //  text(c,letterX+random(-3,3),y+random(-3,3));
   //}
 }
