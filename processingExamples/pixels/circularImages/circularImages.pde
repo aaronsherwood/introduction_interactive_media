@@ -1,7 +1,7 @@
 PImage img;
 PImage[] tiles;
 
-int tileSize = 100;
+int tileSize = 400;
 
 void setup() {
   fullScreen();
@@ -17,14 +17,14 @@ void draw() {
   pushMatrix();
   translate(width/2, height/2);
   image(tiles[(int)random(tiles.length)], 0, 0);
-  int numCircles = 10;
+  int numCircles = 4;
   for (int j = 0; j < numCircles; j++) {
     int amount = 10*(j+1);
     float div = TWO_PI/amount;
     int whichImage = (int)random(tiles.length);
     for (int i = 0; i< amount; i++) {
-      float x = cos(div*i)*tileSize*j+1;
-      float y = sin(div*i)*tileSize*j+1;
+      float x = cos(div*i)*tileSize*j;
+      float y = sin(div*i)*tileSize*j;
       pushMatrix();
       translate(x, y);
       rotate(div*i);
