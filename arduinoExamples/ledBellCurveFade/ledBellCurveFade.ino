@@ -4,7 +4,7 @@ int speed = 10;
 // change spread to make the bell curve wiser or narrower
 float spread = 0.1;
 
-// set the postion to start above the screen so the first circle is dark
+// set the postion to start outside of 0 to 1 so the first LED is dark
 float bellCurveCenter = -spread;
 
 float ledPos[3] = {.25, .5, .75};
@@ -19,9 +19,9 @@ void setup()
 
 void loop()
 {
+  // this is the juicy part
   for (int i=0; i< 3; i++) {
-    // this is the juicy part
-    // i'm taking the position of the circle and finding the distance of each LED from the center of our bell curve
+    // finding the distance of each LED from the center of our bell curve
     float distance = abs(ledPos[i]-bellCurveCenter);
     // this is the formula for the bell curve, multiply by 255 to put in the proper range for brightness
     float brightness = exp(-0.5*pow(distance/spread, 2.))*255;
@@ -30,7 +30,7 @@ void loop()
   }
   
   // move the center
-  // you could adjust the speed with your potentiometer
+  // you could adjust the speed with a potentiometer
   if (millis()%speed==0)
     bellCurveCenter += .01;
 
