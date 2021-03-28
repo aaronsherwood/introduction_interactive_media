@@ -1,8 +1,8 @@
 // higher number is slower
-int speed = 10;
+int speed = 20;
 
 // change spread to make the bell curve wiser or narrower
-float spread = 0.1;
+float spread = 0.12;
 
 // set the postion to start outside of 0 to 1 so the first LED is dark
 float bellCurveCenter = -spread;
