@@ -1,14 +1,14 @@
 // higher number is slower
-int speed = 5;
+int speed = 10;
 
 // change spread to make the bell curve wiser or narrower
-int spread = 75;
+float spread = 0.1;
 
 // set the postion to start above the screen so the first circle is dark
-int bellCurveCenter = -spread;
+float bellCurveCenter = -spread;
 
-int ledPos[3] = {160, 320, 480};
-int ledIndex[3] = {9, 10, 11};
+float ledPos[3] = {.25, .5, .75};
+int ledIndex[3] = {5, 10, 11};
 
 void setup()
 {
@@ -32,11 +32,11 @@ void loop()
   // move the center
   // you could adjust the speed with your potentiometer
   if (millis()%speed==0)
-    bellCurveCenter += 1;
+    bellCurveCenter += .01;
 
   // start it over when it reaches the end
   // reset based on the spread so that it fades all the way out before resetting
-  if (bellCurveCenter>640+spread) {
+  if (bellCurveCenter>1+spread) {
     bellCurveCenter = -spread;
   }
 }
