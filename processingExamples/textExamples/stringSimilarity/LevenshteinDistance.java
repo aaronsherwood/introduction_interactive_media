@@ -25,16 +25,4 @@ public class LevenshteinDistance {
     }
     return costs[s2.length()];
   }
- 
-  public static void printDistance(String s1, String s2) {
-    System.out.println(s1 + "-->" + s2 + ": " + computeDistance(s1, s2));
-  }
- 
-  public static void main(String[] args) {
-    printDistance("kitten", "sitting");
-    printDistance("rosettacode", "raisethysword");
-    printDistance(new StringBuilder("rosettacode").reverse().toString(), new StringBuilder("raisethysword").reverse().toString());
-    for (int i = 1; i < args.length; i += 2)
-      printDistance(args[i - 1], args[i]);
-  }
 }

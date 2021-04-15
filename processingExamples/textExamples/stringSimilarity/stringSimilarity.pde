@@ -9,7 +9,7 @@ String s3 = "Morse code....";
 // a distance of 0 means they are exactly the same
 // the higher the distance, the farther away the strings are from each other
 // try comparing string s1 to s1, to s2, and to s3 to see the differences
-int d = LevenshteinDistance.computeDistance(s1, s1);
+int d = LevenshteinDistance.computeDistance(s1, s3);
 println("The distance between the two strings is: " + d);
 
 // taken from here: https://forum.processing.org/one/topic/how-can-i-calculate-similarity-score-of-strings.html
