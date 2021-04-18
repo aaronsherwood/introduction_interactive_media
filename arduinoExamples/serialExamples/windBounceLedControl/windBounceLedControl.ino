@@ -1,14 +1,14 @@
 void setup() {
   Serial.begin(9600);
   Serial.println("0");
-  pinMode(2, OUTPUT);
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
   while (Serial.available()) {
     byte bounce = Serial.parseInt();
     if (Serial.read() == '\n') {
-      digitalWrite(2, bounce);
+      digitalWrite(13, bounce);
       int sensor = analogRead(A0);
       Serial.println(sensor);
     }
@@ -30,7 +30,6 @@ PVector wind;
 float drag = 0.99;
 float mass = 50;
 float hDampening;
-long ledOnTimer = 0;
 
 void setup() {
   size(640, 360);
@@ -61,17 +60,16 @@ void draw() {
   position.add(velocity);
   acceleration.mult(0);
   ellipse(position.x, position.y, mass, mass);
-  
+
   if (position.y > height-mass/2) {
     velocity.y *= -0.9;  // A little dampening when hitting the bottom
     position.y = height-mass/2;
+  }
+
+  if (round(velocity.y)<0)
     onOff=true;
-    ledOnTimer = millis()+100;
-  }
-  
-  if (millis() > ledOnTimer){
-   onOff=false; 
-  }
+  else
+    onOff=false;
 }
 
 void applyForce(PVector force) {
@@ -101,6 +99,7 @@ void keyPressed() {
     velocity.mult(0);
   }
 }
+
 
 
  */
