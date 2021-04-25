@@ -14,7 +14,7 @@ float timing2=0.;
 
 void setup() {
   size(640, 480);
-  video = new Capture(this, 640, 480, 30);
+  video = new Capture(this, "pipeline:autovideosrc");
   video.start();
   prevFrame=createImage(640, 480, RGB);
 

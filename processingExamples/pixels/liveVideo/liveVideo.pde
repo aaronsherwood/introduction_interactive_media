@@ -5,7 +5,7 @@ Capture video;
 void setup() {
   size(640, 480);
   noStroke();
-  video = new Capture(this, 640,480,30);
+  video = new Capture(this, "pipeline:autovideosrc");
   video.start();
 }
 
