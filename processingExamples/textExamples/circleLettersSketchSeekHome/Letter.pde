@@ -21,8 +21,8 @@ class Letter {
     // then we scale that down a certain degree, 
     // and add that fraction of a direction to our current location
     if (seekHome) {
-      x += (homeX - x)*.1;
-      y += (homeY - y)*.1;
+      x += (homeX - x)*.2;
+      y += (homeY - y)*.2;
     } else {
       x += xSpeed;
       y += ySpeed;
