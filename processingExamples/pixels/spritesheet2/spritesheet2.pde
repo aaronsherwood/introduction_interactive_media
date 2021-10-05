@@ -4,7 +4,7 @@ int direction = 1; // 0 up
 int step = 0;
 int x;
 int y;
-int speed = 3;
+int speed = 7;
 
 void setup() {
   size(1280, 720);
@@ -22,8 +22,8 @@ void setup() {
     }
   }
 
-  x = width/2;
-  y = height/2;
+  x = 0;
+  y = 0;
   
   imageMode(CENTER);
 }
@@ -35,17 +35,21 @@ void draw() {
   if (keyPressed) {
     if (keyCode == LEFT) {
       direction = -1;
-   
+       x-=speed;
     }
     if (keyCode == RIGHT) {
       direction = 1;
-  
+      x+=speed;
     }
-    if (frameCount%speed==0) {
+    if (frameCount%3==0) {
       step = (step+1) % 8;
     }
+    
   }
   translate(width/2, height/2);
   scale(direction,1);
-  image(sprites[step], 0,0);
+  float xLoc = x;
+  if (direction ==-1)
+    xLoc *=-1;
+  image(sprites[step], xLoc,0);
 }

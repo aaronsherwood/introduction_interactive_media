@@ -6,6 +6,7 @@ float speed;
 
 void setup() {
   size(1280, 720);
+  //setup the car
   rectMode(CENTER);
   posX = width/2;
   posY = height/2;
@@ -18,6 +19,8 @@ void setup() {
 
 void draw() {
   background(255);
+  
+  //car body
   fill(carColor);
   noStroke();
   rect(posX, posY, carWidth, carHeight);
@@ -32,6 +35,7 @@ void draw() {
   //right bottom wheel
   rect(posX+carWidth/2 - wheelWidth/2, posY + carHeight/2+wheelHeight/2, wheelWidth, wheelHeight);
   
+  //drive the car
   posX += 10;
   
   if (posX > width+carWidth/2) {

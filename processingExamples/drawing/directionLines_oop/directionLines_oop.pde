@@ -2,7 +2,7 @@
 DirectionLine lines[];
 
 void setup() {
-  fullScreen();
+  size(640,480);
 
   //how long will each line be
   int lineLength = 30;

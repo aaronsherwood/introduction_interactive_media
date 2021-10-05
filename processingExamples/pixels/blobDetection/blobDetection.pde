@@ -20,6 +20,7 @@ void setup()
   size(640, 480);
   // Capture
   cam = new Capture(this, 40*4, 30*4, 15);
+  //cam = new Capture(this, 40*4, 30*4, "FaceTime HD Camera (Built-in)", 15);
   cam.start();
   // BlobDetection
   // img which will be sent to detection (a smaller copy of the cam frame);
