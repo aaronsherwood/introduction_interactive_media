@@ -36,7 +36,7 @@ void draw() {
       position.y = height-mass/2;
     }
 }
-  
+
 void applyForce(PVector force){
   // Newton's 2nd law: F = M * A
   // or A = F / M
