@@ -6,7 +6,7 @@ function setup() {
   createCanvas(640, 480);
   noStroke();
 
-  // Serail call and response throuhg a websocket
+  // Serial call and response through a websocket
   socket.on('message', function(msg) {
       if (msg != null) {
         var list = split(trim(msg), ",");
