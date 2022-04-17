@@ -7,4 +7,4 @@
 * Install Node Modules with `npm install` (only need to do this once)
 * In *server.js* set the serial port name.
 * Start the server: `node server.js`
-* Navigate to localhost:8000 for the p5js sketch
+* Navigate to [http://localhost:8000](http://localhost:8000) for the p5js sketch
