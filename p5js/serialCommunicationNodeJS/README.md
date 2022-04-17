@@ -1,4 +1,4 @@
-# Node OSC Serial
+# Node Serial - P5js
 
 ## Usage
 
