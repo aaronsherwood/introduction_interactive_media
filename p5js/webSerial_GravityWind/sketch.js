@@ -11,7 +11,6 @@ let onOff = 0;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  // noFill();
   position = createVector(width / 2, 0);
   velocity = createVector(0, 0);
   acceleration = createVector(0, 0);
