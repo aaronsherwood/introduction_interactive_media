@@ -23,7 +23,7 @@ function setup() {
 
 function draw() {
   background(0, 255, 255);
-  fill(255, 0, 255, 200);
+  fill(255, 0, 0, 200);
   if (!serialActive) {
     text("Press Space Bar to select Serial Port", 20, 30);
   } else {
