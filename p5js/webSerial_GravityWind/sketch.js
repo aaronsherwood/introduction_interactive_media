@@ -11,22 +11,21 @@ let onOff = 0;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  noFill();
+  // noFill();
   position = createVector(width / 2, 0);
   velocity = createVector(0, 0);
   acceleration = createVector(0, 0);
   gravity = createVector(0, 0.5 * mass);
   wind = createVector(0, 0);
+  textSize(18);
+  noStroke();
 }
 
 function draw() {
-  background(255);
-
+  background(0, 255, 255);
+  fill(255, 0, 255, 200);
   if (!serialActive) {
-    push();
-    fill(0);
     text("Press Space Bar to select Serial Port", 20, 30);
-    pop();
   } else {
     applyForce(wind);
     applyForce(gravity);
@@ -39,8 +38,8 @@ function draw() {
       velocity.y *= -0.9; // A little dampening when hitting the bottom
       position.y = height - mass / 2;
     }
-    
-    if (ceil(velocity.y) < 0 && height-(position.y+mass/2)<50)
+
+    if (ceil(velocity.y) < 0 && height - (position.y + mass / 2) < 50)
       onOff = 1;
     else
       onOff = 0;
@@ -54,7 +53,7 @@ function applyForce(force) {
   acceleration.add(f);
 }
 
-function mousePressed(){
+function mousePressed() {
   mass = random(15, 80);
   position.y = -mass;
   velocity.mult(0);
