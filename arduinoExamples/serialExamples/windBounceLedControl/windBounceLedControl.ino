@@ -1,14 +1,17 @@
 void setup() {
   Serial.begin(9600);
-  Serial.println("0");
-  pinMode(13, OUTPUT);
+  pinMode(2, OUTPUT);
+  while (Serial.available() <= 0) {
+    Serial.println("0"); // send a starting message
+    delay(300);              // wait 1/3 second
+  }
 }
 
 void loop() {
   while (Serial.available()) {
     byte bounce = Serial.parseInt();
     if (Serial.read() == '\n') {
-      digitalWrite(13, bounce);
+      digitalWrite(2, bounce);
       int sensor = analogRead(A0);
       Serial.println(sensor);
     }
