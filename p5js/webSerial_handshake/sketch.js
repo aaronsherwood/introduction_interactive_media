@@ -6,7 +6,7 @@ let left = 0;
 let right = 0;
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(window.innerWidth, window.innerHeight);
   textSize(18);
 }
 
