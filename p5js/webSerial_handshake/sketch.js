@@ -1,5 +1,3 @@
-let port, reader, writer;
-let serialActive = false;
 let rVal = 0;
 let alpha = 255;
 let left = 0;
@@ -38,53 +36,33 @@ function draw() {
 
 function keyPressed() {
   if (key == " ") {
+    // important to have in order to start the serial connection!!
     setUpSerial();
   }
 }
 
-async function setUpSerial() {
-  noLoop();
-  ({ port, reader, writer } = await getPort());
-  serialActive = true;
-  runSerial();
-  loop();
-}
-
-async function runSerial() {
-  try {
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) {
-        // Allow the serial port to be closed later.
-        reader.releaseLock();
-        break;
-      }
-
-      ////////////////////////////////////
-      //READ FROM ARDUINO HERE
-      ////////////////////////////////////
-      if (value != null) {
-        // make sure there is actually a message
-        // split the message
-        let fromArduino = split(trim(value), ",");
-        // if the right length, then proceed
-        if (fromArduino.length == 2) {
-          // only store values here
-          // do everything with those values in the main draw loop
-          rVal = fromArduino[0];
-          alpha = fromArduino[1];
-        }
-
-        //////////////////////////////////
-        //SEND TO ARDUINO HERE (handshake)
-        //////////////////////////////////
-        let sendToArduino = left + "," + right + "\n";
-        await writer.write(sendToArduino);
-      }
-      ////////////////////////////////////
+function readSerial(data) {
+  ////////////////////////////////////
+  //READ FROM ARDUINO HERE
+  ////////////////////////////////////
+  
+  if (data != null) {
+    // make sure there is actually a message
+    // split the message
+    let fromArduino = split(trim(data), ",");
+    // if the right length, then proceed
+    if (fromArduino.length == 2) {
+      // only store values here
+      // do everything with those values in the main draw loop
+      rVal = fromArduino[0];
+      alpha = fromArduino[1];
     }
-  } catch (e) {
-    console.error(e);
+
+    //////////////////////////////////
+    //SEND TO ARDUINO HERE (handshake)
+    //////////////////////////////////
+    let sendToArduino = left + "," + right + "\n";
+    writeSerial(sendToArduino);
   }
 }
 

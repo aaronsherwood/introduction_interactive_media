@@ -5,6 +5,7 @@ adapted from: https://github.com/ongzzzzzz/p5.web-serial
 MIT License
 
 Copyright (c) 2022 Ong Zhi Zheng
+Copyright (c) 2022 Aaron Sherwood
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +25,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+let port, reader, writer;
+let serialActive = false;
+
 
 async function getPort(baud = 9600) {
     let port = await navigator.serial.requestPort();
@@ -64,4 +69,38 @@ class LineBreakTransformer {
         // When the stream is closed, flush any remaining chunks out.
         controller.enqueue(this.chunks);
     }
+}
+
+async function setUpSerial() {
+  noLoop();
+  ({ port, reader, writer } = await getPort());
+  serialActive = true;
+  runSerial();
+  loop();
+}
+
+async function runSerial() {
+  try {
+    while (true) {
+      if (typeof(readSerial) === 'undefined') {
+        console.log("No readSerial() function found.")
+        serialActive = false;
+        break;
+      } else {
+        const { value, done } = await reader.read();
+        if (done) {
+          // Allow the serial port to be closed later.
+          reader.releaseLock();
+          break;
+        }
+       readSerial(value);
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function writeSerial(msg){
+  await writer.write(msg);
 }
