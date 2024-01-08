@@ -2,48 +2,32 @@
 
 [p5js Example Sketches](https://editor.p5js.org/aaronsherwood/collections/BKHiAiMtG)
 
-## Weekly Schedule
-- [Week 0](#week-0) - Class visit, Introductions
-- [Week 1](#week-1) - p5.js, Variables, animation, conditionals
-- [Week 2](#week-2) - Functions 
-- [Week 3](#week-3) - arrays, object oriented programming (OOP)
+## Weekly Schedule 
+- [Week 1](#week-1) - Introductions, p5.js, variables
+- [Week 2](#week-2) - Animation, conditionals, loops
+- [Week 3](#week-3) - Functions, arrays, object oriented programming (OOP)
 - [Week 4](#week-4) - Working with text
 - [Week 5](#week-5) - Working with pixels, sound
 - [Week 6](#week-6) - Computer Vision
 - [Week 7](#week-7) - Midterm presentations
-- FALL BREAK
-- [Week 7.9](#week-79) - Saturday 10/28 - Legislative Wednesday
-- [Week 8](#week-8) - Introduction to Arduino, electricity
+- SPRING BREAK
+- [Week 7.9](#week-79) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
+- [Week 8](#week-8) - Introduction to Arduino, electricity cont.
 - [Week 9](#week-9) - Analog and digital I/O
-- [Week 10](#week-10) - Sound, movement, circuit schematics
+- [Week 10](#week-10) - Sound, movement, circuit schematics, No class Apr 11
 - [Week 11](#week-11) - Connecting Arduino to p5.js
-- [Week 12](#week-12) - Motors, No class 11/29 (Legislative Friday)
-- [Week 13](#week-13) - Circuit debugging, Soldering, Fabricating
+- [Week 12](#week-12) - Motors
+- [Week 13](#week-13) - Circuit debugging, soldering, fabricating
 - [Week 14](#week-14) - Final project due, course review
 - [IM Show](#im-show) - IM End of Semester Show
 
 
-## Week 0
+## Week 1
 
-### Week 0.1 - 8/28
-No class
+### Week 1.1 - Jan 23
 
-### Week 0.2 - 8/30
-
-#### Administration
-- Andrew Schneider class visit
-  - [N O W I S W H E N W E A R E (the stars)](https://nyuad.nyu.edu/en/events/2023/august/nowiswhenweare-andrew-schneider.html) in the Black Box
-  - Behind the scenes tour for Intro to IM students Tuesday Sept 5 1-2pm
-    - RSVP to bea.laszlo at nyu.edu
-- Introductions
-- Syllabus etc.
-- Reading discussions
-- Join the Discord server
-  - [Discord invite link on Brightspace](https://brightspace.nyu.edu/d2l/le/lessons/265667/units/8229514)
-- Check Wordpress account on https://intro.nyuadim.com/wp-admin
-  - [Wordpress login info on Brightspace](https://brightspace.nyu.edu/d2l/le/lessons/265667/units/8229515)
-- Show in Project Space opens Thursday!
-  - [Your Message Could Not Be Delivered](https://www.nyuad-artgallery.org/en_US/arts-center-project-space/your-message-could-not-be-delivered/)
+#### Introductions
+- Who am I?? [https://aaron-sherwood.com/](https://aaron-sherwood.com/)
 
 #### What’s the class about?
 
@@ -144,56 +128,28 @@ That you are flexible. That you are open.
 
 That you can laugh at yourself. That you are kind.
 
-
 #### Example
-<ul>
- 	<li>Carlos Guedes' wonderful <a href="https://vimeo.com/235763130">Phobos</a>, Orquestra Robótica Disfuncional (1 min)</li>
-	<li>Mang's <a href="https://www.michaelang.com/project/city-refl3ctor">City Refl3ctor</li>
- 	<li>Sudhu Tewari's <a href="https://www.youtube.com/watch?v=MjNB3nKPMb8" >Yasmin Electro Mechanical Sequencer</a></li>
- 	<li>List of <a href="http://eat.cca.edu/" >inspirational movies</a> collected by <a href="http://www.ultrafuzz.net/" >Barney Haynes</a> (also <a href="https://vimeo.com/barneyhaynes" >here</a>) and shown at his interface classes.</li>
- 	<li>List collected by <a href="https://github.com/zamfi">J.D. Zamfirescu</a>
-<li><a href="http://www.youtube.com/watch?v=zkpH1BjD6Wc" >Tree-climbing robot</a></li>
-<li><a href="http://www.youtube.com/watch?v=tOsNXg2vAd4#t=120" >Insect robot</a></li>
-<li><a href="http://www.youtube.com/watch?v=YblSltHDbIU" >Treadbot</a></li>
-<li><a href="https://www.futureforms.us/murmur-wall" >Murmur Wall</a></li>
-<li><a href="http://vimeo.com/72826106" >Floating Couch</a></li>
-<li><a href="https://www.youtube.com/watch?v=BZysu9QcceM#t=36" >Wooden Segment Mirror</a></li>
-<li><a href="https://www.youtube.com/watch?v=pNkz8wEJljc" >Generative design</a></li>
-<li><a href="https://vimeo.com/71044541" >Textile weaving</a></li>
-<li><a href="https://www.youtube.com/watch?v=czuhNcNU6qU" >Projection mapping</a></li>
-<li><a href="http://www.youtube.com/watch?v=sLVXmsbVwUs#t=20" >Laser
-harp</a></li>
-<li><a href="http://vimeo.com/57082262#at=130" >Arc-o-matic</a></li>
-<li><a href="https://www.youtube.com/watch?v=w4cdbV2oaEc" >Eggbot</a></li>
-<li><a href="http://www.youtube.com/watch?v=kx9D74t7GD8#t=89"
->Textspresso</a></li>
-<li><a href="http://www.youtube.com/watch?v=pCC1GXnYfFI#t=11" >Shapoko / tinyg</a></li>
-<li><a href="http://www.youtube.com/watch?v=NAbiAzYhTOQ" >Makerbot Replicator</a></li>
-<li><a href="https://www.youtube.com/watch?v=0DNkbZvVYvc"
->Roomba</a></li></li>
- 	<li><a href="https://www.youtube.com/watch?v=1G0MzlfMPuM" >Golan Levin: Art that looks back at you</a></li>
- 	<li><a href="https://www.youtube.com/watch?v=PV_w38ldZaE" >Drawdio</a></li>
- 	<li>Claire Neel's <a href="https://youtu.be/lYERKTf5YtI" >reactive eye</a></li>
- 	<li>Professor Aaron Sherwood's <a href="http://aaron-sherwood.com/works/firewall/">Reactive Wall</a></li>
- 	<li><a href="http://melissafelderman.com/digitalgraffitiwall/index.html">Digital Graffiti Wall</a></li>
- 	<li><a href="http://www.willjfield.com/itp-2/explorer-space-simulator/">Space Simulator</a></li>
- 	<li><a href="https://vimeo.com/114414122">Wind based jug organ</a></li>
- 	<li><a href="http://andysigler.com/projects/dipinator/">The Dipinator</a></li>
- 	<li><a href="https://www.gabebc.com/jitterbox">Jitterbox</a></li>
-</ul>
-</li>
-</ul>
+- [red circles interaction](https://vimeo.com/14633259)
+- [music capacitive touch wall](https://www.youtube.com/watch?v=RG5Fi-eCLbc&ab_channel=raonsquare)
+- [range finder music wall](https://www.youtube.com/watch?v=hP36xoPXDnM&ab_channel=VoicesofU)
+- [mirror following](https://vimeo.com/9852175)
+- [bubble blowing](http://intro18spring.nyuadim.com/2018/03/01/midterm-bubble-blowing-machine/)
+- [interactive totoro](https://vimeo.com/325303174)
+- [interactive stairs](https://www.behance.net/gallery/88193739/Musical-Stairs-An-Interactive-Installation)
 
-#### Homework
+#### Administration
+- Website
+- Syllabus etc.
+- Reading discussions
+- Video's on Wordpress
+
+#### Homework (due before next class)
 - Join the Discord server (optional, recommended)
-  - [Discord invite link on Brightspace](https://brightspace.nyu.edu/d2l/le/lessons/306565/units/8991352)
-- Log into the class Wordpress using your user account. If you have problems let Mang know
-  - [Wordpress login information](https://brightspace.nyu.edu/d2l/le/lessons/306565/units/8991353)
+- Log into the class Wordpress using your user account. If you have problems let me know
 - Create an account on [p5js.org](https://p5js.org/)
 
-## Week 1
 
-### Week 1.1 - 9/4
+### Week 1.2 - Jan 25
 
 #### Let's get started
 - What is p5.js?
@@ -206,38 +162,10 @@ harp</a></li>
     - [Interactivity](https://p5js.org/learn/interactivity.html)
     - [Program Flow](https://p5js.org/learn/program-flow.html)
     - [Debugging](https://p5js.org/learn/debugging.html)
-<!--  - [Introduction to p5.js](https://medium.com/comsystoreply/introduction-to-p5-js-9a7da09f20aa) -->
   - [Programming with p5.js videos (Coding Train)](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
     - [p5.js Web Editor (Coding Train)](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
     - [Shapes and Drawing (Coding Train)](https://www.youtube.com/watch?v=c3TeLi6Ns1E&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=5)
     - [Color (Coding Train)](https://www.youtube.com/watch?v=riiJTF5-N7c&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=6)
-
-
-
-<!-- $$$ move to after break
-##### GitHub
-- What is [GitHub](https://github.com/)?
-- Difference between an account and a repository
-- Follow along with me and create an account
-- Instructions for this are
-[here](https://github.com/michaelshiloh/resourcesForClasses#github-resources).
-
-Please use your name for your account name so that I can more easily recognize
-it.  If you don't want to use your name for privacy reasons, please choose an
-alias that I can recognize as you.
-
-Name your repository "introduction to interactive Media". 
-
-- Edit your README.md file
-	- What is README.md?
-	- What is .md?
-- Simple Markdown 
-	- **Bold**
-	- Paragraphs must be separated by a blank line
-	- Inserting images: ![](media/eye-calipers.jpg)
-	- Always remember to commit your changes!
-	- More [here](https://github.com/michaelshiloh/resourcesForClasses#github-resources).
--->
 
 ##### Simple shapes in p5.js
 
@@ -265,44 +193,99 @@ Controlling color, fill, and stroke
 Here is the program we developed in class:
 
 ````
+////////////////////////////////////////////////
+// global variables:
+// they're being declared and initialized
+// outside of functions
+// though they could be initialized in a function
+// but will always have to be declared outside
+////////////////////////////////////////////////
+
+let trianglePosX = 100;
+let trianglePosY = 200;
+let circlePosX = 0;
+let speed = 5;
+
 function setup() {
-  createCanvas(600,600); 
-  background(25, 130, 80); 
-  
-  // draw a circle and a rectangle with the default colors
-  circle (width/2, height/2, 50);
-  rect(10, 10, 80, 20);
-  
-  // change the stroke and fill
-  fill(180,0,0);
-  stroke(0,0,180);
-  // circle(80, 80, 80); this circle is commented out so it won't be drawn
-  ellipse(200, 280, 50, 80);
-  
-  // change the stroke color but keep the same fill
-  stroke(180,0,0);
-  line( 0,0, 300, 100);
-  
-  let foo = radians(90);
-  print(foo);                  //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS VERY USEFUL!!!!!!!
-  
-  arc(50, 55, // center of the ellipse
-      50, 50, // width and height
-      0, radians(180)); // start and stop angle
-  
-  triangle( 100, 100, 10, 200, 100, 300);
-  print(width/2, height/2);
+  createCanvas(600, 400);
+
+  ////////////////////////////////////////////////
+  // print will print info to the console
+  print(trianglePosX);
+  ////////////////////////////////////////////////
 }
 
-let x = 0;
 function draw() {
-	// Where am I?
-  print(mouseX, mouseY);
+  background(255);
   
-	// I can do animation!
-  circle(x, 500, 40);
-  x=x+1;
+  ////////////////////////////////////////////////
+  // UNCOMMENT BELOW FOR THE VARIOUS EXAMPLES
+  ////////////////////////////////////////////////
+
+  ////////////////////////////////////////////////
+  // simple drawing
+  ////////////////////////////////////////////////
+  
+  noStroke();
+  fill(0, 255, 0);
+  rect(200, 200, 150, 150);
+  
+  ////////////////////////////////////////////////
+  // ellipse and circle
+  ////////////////////////////////////////////////
+  
+  //   fill(255, 120, 0, 200);
+  //   ellipse(width / 2, height / 2, width / 4, height / 4);
+
+  //   fill(255, 0, 0, 100);
+  //   circle(width / 2, height / 2, height / 2);
+  
+  ////////////////////////////////////////////////
+  // line only has stroke
+  ////////////////////////////////////////////////
+
+  //   stroke(255, 120, 0);
+  //   line(0, height / 2, width, height / 2);
+
+  ////////////////////////////////////////////////
+  // variables are helpful to move a shape around
+  ////////////////////////////////////////////////
+  
+  //   noStroke();
+  //   fill(255);
+  //   trianglePosX = mouseX;
+  //   trianglePosY = mouseY;
+  //   triangle(
+  //     trianglePosX,
+  //     trianglePosY,
+  //     trianglePosX,
+  //     trianglePosY + 100,
+  //     trianglePosX + 100,
+  //     trianglePosY + 100
+  //   );
+  
+  ////////////////////////////////////////////////
+  // an arc draws part of a circle
+  ////////////////////////////////////////////////
+
+  // arc(width/2, height/2, 100, 100, PI, 5, PIE);
+
+  // noStroke();
+  // fill(255, 120, 0, 200);
+  // circle(circlePosX, height / 2, width / 4);
+  
+  ////////////////////////////////////////////////
+  // add a number to the circle's x position to
+  // make it move across the screen
+  ////////////////////////////////////////////////
+
+  // circlePosX = circlePosX + speed;
+
+  // if (circlePosX > width) {
+  //   circlePosX = 0;
+  // }
 }
+
 
 ````
 **Notes**
@@ -317,23 +300,11 @@ Sketches will be submitted by making a blog post and submitting through Brightsp
 - [How to embed your P5js sketch directly into a blog post](https://intro.nyuadim.com/2022/01/06/how-to-embed-a-p5js-sketch-in-your-blog-post/)
 - Code snippets in blog post
 
-<!-- $$$ move to after break
-##### Saving a sketch to GitHub
-
-- Navigate to desired folder
-- Click on "Add file" 
-- Select "Create new file"
-- Type in optional new folder(s) followed by slashes `/` followed by a file
-	name
-- Copy your code from the p5.js editor and paste it into GitHub
-- Scroll down to the bottom
-- Optionally change the commit comment
-- Click on "Commit new file"
--->
-
 [Back to top](#weekly-schedule)
 
-### Week 1.2 - 9/6
+<!--
+
+### Week 2.1 - Jan 30
 
 #### Questions
 Did any questions come up since we last met?
@@ -1876,32 +1847,6 @@ next one when we click the mouse?
 
 #### Homework feedback
 
-<!--
-- I love the diversity in data sets that you found! So much more creative than
-	the example I showed in class.
-- In general, your descriptions and comments are weak. Most of you need
-	better descriptions and almost all of you need better comments.
-	- `k = 0; x = 0; y = 0;` What is `k`? I assume `x` and `y` are coordinates,
-		but of what? Why are they set to zero? Is that important? If not, why is
-		it there?
-	- Your comments must explain what your code does: A comment that says "loop
-		over all elements in the array" is accurate but doesn't give the reader
-		any new information. You must explain why you are looping over all
-		elements. Put a comment (preferably more than one line) at the beginning
-		of every function, loop, or distinct block of code explaining a) what it
-		does and b) how it does it
-	- Make sure your comments agree with the code! A comments that says "the
-		last two fields" but then refers to fields 1 and 2 (when I can see that
-		there are at least 5 is clearly wrong. Did you just copy that blindly from
-		my example?
-- Shoutouts 
-	- [Ryan](https://github.com/ryanrichardsmith/IntroductionToInteractiveMedia/blob/main/Feb22/playlist.js) for excellent comments
-		- Also
-			[Pranav](https://github.com/sripranav9/IntroductionToInteractiveMedia/blob/main/February22/dataVisualization.js)
-	- [Dhabia](https://github.com/noorajabir/IntroToIM/tree/main/Feb%2022) for excellent presentation
-	- [Shaikha](https://github.com/ShaikhaAlN/IntroToIM/tree/main/Feb22) for whimsical project
--->
-
 #### Working with a camera: Computer Vision!
 
 Basic sketch showing how to get input from camera:
@@ -2056,31 +2001,6 @@ Coding](https://happycoding.io/tutorials/p5js/)
   - Bring any adapter you need from USB-A to your computer for the first class after the break
 
 ## FALL BREAK / FALL BREAK / FALL BREAK
-
-<!-- $$$ move to after break
-##### GitHub
-- What is [GitHub](https://github.com/)?
-- Difference between an account and a repository
-- Follow along with me and create an account
-- Instructions for this are
-[here](https://github.com/michaelshiloh/resourcesForClasses#github-resources).
-
-Please use your name for your account name so that I can more easily recognize
-it.  If you don't want to use your name for privacy reasons, please choose an
-alias that I can recognize as you.
-
-Name your repository "introduction to interactive Media". 
-
-- Edit your README.md file
-	- What is README.md?
-	- What is .md?
-- Simple Markdown 
-	- **Bold**
-	- Paragraphs must be separated by a blank line
-	- Inserting images: ![](media/eye-calipers.jpg)
-	- Always remember to commit your changes!
-	- More [here](https://github.com/michaelshiloh/resourcesForClasses#github-resources).
--->
 
 ## Week 7.9
 ### Week 7.9 - 10/28 SATURDAY - Legislative Wednesday
@@ -2909,11 +2829,6 @@ What techniques have you learned to help you find problems?
 #### Serial Communication
 
 Communicating between p5.js and Arduino
-<!--
-- [Serial Input to p5.js Using the p5.webserial Library (ITP)](https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-webserial-input-to-p5-js/)
-  - [Week 11 Serial pot (p5 editor)](https://editor.p5js.org/mangtronix/sketches/vQzE2Yhpj)
-  - [Week 11 Serial pot (Arduino sketch)](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week_11_Serial_pot.ino)
--->
 - Bidirectional communication example
 	- [Week 11 Bidirectional serial communication(p5js Sketch)](https://editor.p5js.org/mangtronix/sketches/s67XC0zT4)
 	- [Week 11 Arduino serial code (Arduino Sketch)](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week11Serial.ino)
@@ -2949,30 +2864,6 @@ Communicating between p5.js and Arduino
 	- [ITP Labs serial output, bidirectional communication](https://itp.nyu.edu/physcomp/labs/#Serial_Communication)
 	- [p5.js and Arduino serial communication - Send a digital sensor to a p5.js sketch (YouTube)](https://www.youtube.com/watch?v=feL_-clJQMs)
 	- Note: these use a different serial library, don't mix and match code between the ITP WebSerial code and Aaron's web-serial. You need to start with one example and continue to use the same software library
-
-
-<!-- Older examples using serial server
-
-MacOS or Windows
-- Follow Jack's excellent tutorial
-[here](https://docs.google.com/document/d/1l7pgSkb9SqoOFyo6xVZTlW-ORQJ_iHNUrOBGdARW4j4/edit)
-	- When you download `p5.serialcontrol`, download Beta 1.1
-
-On linux
-1. Install a serial server 
-	1. sudo npm install -g p5.serialserver --unsafe-perm --build-from-source
-1. Invoke it
-	1. p5serial
-
-Examples
-- A minimal [example](https://editor.p5js.org/michaelshiloh/sketches/h2RQaOmYP) 
-	- Clicking the mouse turns on an LED
-	- Closing a switch on Arduino sends a signal to p5.js
-- Aaron's [example](https://editor.p5js.org/aaronsherwood/sketches/v8OM9VbGe)
-	- Two sensors on Arduino control the position of a circle on p5.js
-	- Clicking the mouse on different parts of the canvas controls two LEDs
-		on Arduino
- -->
  
 
 ### Week 11.2 - 11/22 - Serial communication
@@ -3301,7 +3192,6 @@ without using `delay()`:
 - Work on final projects
 - Ask any questions now!
 - Your project must be working at start of next class for presentations
-<!--  - Fill in [IM show projects / names](https://docs.google.com/spreadsheets/d/1aXrKcITRLWjKAo3YQc2PuvnMzbxo5FgvFTl6tXbXpTs/edit?usp=sharing) - printing labels this Friday -->
 
 ### Week 14.2 - 12/13 - Final project presentations
 
