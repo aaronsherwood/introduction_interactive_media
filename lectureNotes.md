@@ -190,7 +190,7 @@ Controlling color, fill, and stroke
 - `arc(100, 100, 100, 100, 0, 180)`
 - `arc(100, 100, 100, 100, 0, radians(180), CHORD)`
 
-Here is the program we developed in class:
+Here is the example program:
 
 ````
 ////////////////////////////////////////////////
@@ -317,7 +317,6 @@ p5.js Links
 
 - Javascript is not a typed language: you don't need to declare
 	a variable's type
-- [Week 2 - Variables (p5js editor)](https://editor.p5js.org/mangtronix/sketches/X3tNw_gGC)
 - `let myNumber = 4.5;`
 - `let myString = "the quick brown fox";`
 - `let myArray = ["the", "quick", "brown", "fox"];`
@@ -339,7 +338,6 @@ be the location of a shape but you can manipulate anything such as color also:
 The  `draw()` function is called once per frame. Think of it as drawing a new
 page on a ["flip book"](https://en.wikipedia.org/wiki/Flip_book)
 
-[Week 2 - Drawing (p5js editor)](https://editor.p5js.org/mangtronix/sketches/YkprSBTwX)
 ````
 let foo = 0;
 
@@ -454,11 +452,10 @@ Refer to these for additional information
 
 [Back to top](#weekly-schedule)
 
-<!--
 
 ## Week 2
 
-### Week 2.1 - 9/11
+### Week 2.1 - 1/30
 
 Overview:
 - Readings
@@ -660,7 +657,6 @@ function drawOneHouseAt( x) {
 
 #### Variable Scope (again)
 
-https://editor.p5js.org/mangtronix/sketches/DaceAEVzA
 ````
 let foo;  // this is a global variable, visible in all functions
 
@@ -698,9 +694,8 @@ function draw() {
 - [9.1: Transformations Pt.1 (Translate, Rotate, Push/Pop) - p5.js Tutorial (Dan Shiffman YouTube)](https://www.youtube.com/watch?v=o9sgjuh-CBM)
 - [Intro to IM Sketch Collection (p5 web editor)](https://editor.p5js.org/mangtronix/collections/A3JbliQrM)
 
-[Back to top](#weekly-schedule)
 
-### Week 2.2 - 9/13
+### Week 2.2 - Feb 1
 
 ##### Artwork examples
 - [Vera Molnar](https://magazine.artland.com/vera-molnar/)
@@ -741,8 +736,6 @@ the reference section
 	
 See [Program flow](https://p5js.org/learn/program-flow.html) for more examples of callback functions and event handlers.
 
-
-https://editor.p5js.org/mangtronix/sketches/7zooOaxnq
 ````
 const redLocationX = 40;
 const redLocationY = 40;
@@ -830,6 +823,10 @@ function mouseIsWithinRect( x, y, sizeX, sizeY) {
 - Operator precedence is [very
 	complicated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). It is best to put parenthesis to
 	force the order you want.
+
+[Back to top](#weekly-schedule)
+
+<!--
 
 ## Week 3
 
