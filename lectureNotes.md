@@ -300,15 +300,6 @@ Sketches will be submitted by making a blog post and submitting through Brightsp
 - [How to embed your P5js sketch directly into a blog post](https://intro.nyuadim.com/2022/01/06/how-to-embed-a-p5js-sketch-in-your-blog-post/)
 - Code snippets in blog post
 
-[Back to top](#weekly-schedule)
-
-<!--
-
-### Week 2.1 - Jan 30
-
-#### Questions
-Did any questions come up since we last met?
-
 - Uploading files to web editor
   - Click triangle next to "Sketch Files" and click "Upload file"
   - [p5.js Web Editor: Uploading Media Files (Coding Train)](https://www.youtube.com/watch?v=rO6M5hj0V-o)
@@ -460,6 +451,10 @@ Refer to these for additional information
 - [Programming with p5.js for Beginners (Coding Train Videos)](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
 - [JavaScript Programming Tutorial (w3schools)](https://www.w3schools.com/js/default.asp)
 - [JavaScript Loops Explained](https://www.freecodecamp.org/news/javascript-loops-explained-for-loop-for/)
+
+[Back to top](#weekly-schedule)
+
+<!--
 
 ## Week 2
 
