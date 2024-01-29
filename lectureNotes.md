@@ -470,7 +470,7 @@ Monday's class and post a response. We will discuss the readings in groups in cl
 
 [Explanation of in-class discussion (Syllabus)](https://intro.nyuadim.com/syllabus/#studentled)
 
-[Week 2 - Random shuffle group (p5js)](https://editor.p5js.org/mangtronix/sketches/QxFRtipnL) - Choosing discussion groups
+[Week 2 - Random shuffle group (p5js)](https://editor.p5js.org/aaronsherwood/sketches/stJyUVRV9) - Choosing discussion groups
 
 [List of readings (Weekly Schedule)](https://intro.nyuadim.com/)
 
