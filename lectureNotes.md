@@ -461,7 +461,6 @@ Overview:
 - Readings
 - Review
 - Loops
-- Functions
 - Homework assignment + reading
 
 ##### Readings
@@ -570,91 +569,6 @@ function setup() {
 
 ````
 
-#### Functions
-
-Every time you use one of the built-in 'commands', you are really using (or
-more properly 'calling') a built-in function. Functions are a very important
-building block of programming, and in addition to using built-in functions,
-you can also create your own. In fact, you've already been doing that, when
-you created the `setup()` and `draw()` functions. In the case of
-`setup()` and `draw()` you have to use those names, but when you create other
-functions you can make up your own names. Just like variables names, good 
-function names make your programs easier to understand.
-
-Why create your own functions?
-
-- Reuse (if it's something you might do again)
-- Clarity (remember your three important audiences: yourself, others learning
-	from you, me when I grade your work)
-- Easier to debug (what is debugging?)
-	- One of the most powerful ways to approach
-	a bug is to reproduce it with simplest possible example. 
-	This is much easier when the thing that's causing
-	the problem is already a function.
-- Modularity
-- Flexibility (with good choice of parameters)
-
-Let's modify the example from last class to use a function. First let's draw a
-house instead of a circle to make it a little more interesting:
-
-````
-function setup() {
-  createCanvas(300, 300);
-
-  // initialization, condition, and incrementation all in one line
-  for (let foo = 50; foo < width; foo = foo + 50)  {
-    rect(foo, 50, 40, 40);
-    line(foo, 50, foo+20, 30);
-    line(foo+20, 30, foo+40, 50);
-  }
-}
-````
-
-Now let's make a function called `drawOneHouse()`. If we want to
-draw a house at different locations, we need a way to tell
-the function `drawOneHouse()` where to put the house. Functions accommodate
-this by allowing us to pass information into the function by putting 
-that information in the parenthesis. In the function, we store this
-information in temporary variables that we can use in the function:
-
-````
-function setup() {
-  createCanvas(300, 300);
-
-  for (let foo = 50; foo < width; foo = foo + 50) {
-    drawOneHouseAt(foo);
-  }
-}
-
-function drawOneHouseAt( x) {
-  rect(x, 50, 40, 40);
-  line(x, 50, x+20, 30);
-  line(x+20, 30, x+40, 50);
-}
-````
-
-**Notes**
-1. I've said this before and I'll keep saying: 
-	**Choose descriptive names for your variables and functions!** 
-	`foo` is a bad name, `xPos` is a good name,
-	 `houseXPos` is a better name.
-1. The value of `foo` (50, 100, 150 ...) is the information passed to the
-	 function so that the function can do it's work. The proper name for this
-	 information is an **argument**
-1. The variable `x` is a temporary variable that **only exists in the function**.
-	 This variable is used to store the argument that was passed into the
-	 function so that the function can do its work. Once the function is
-	 finished, this variable is no longer needed and is destroyed. 
-	 A variable used in this way is called a **parameter**
-1. Functions may take zero, one, or multiple arguments. When you write 
-	a function, you decide how many arguments you need. For example, we might
-	have included the house size or roof height or house y location. (Of course
-	when you use functions that someone else wrote 
-	you must use the proper number of parameters.)
-1. Functions can return information as well, for example the `random()`
-	 function. Functions can either return one piece of information, or none.
-	We will see later how to do this. 
-
 #### Variable Scope (again)
 
 ````
@@ -684,7 +598,7 @@ function draw() {
 - [p5js Field Guide to Debugging](https://p5js.org/learn/debugging.html)
 - [Debugging (Happy Coding)](https://happycoding.io/tutorials/p5js/debugging)
 
-#### Week 2.2 Additional Resources
+#### Week 2.1 Additional Resources
 - [Programming with p5.js for Beginners (Coding Train Videos)](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
 - [JavaScript Programming Tutorial (w3schools)](https://www.w3schools.com/js/default.asp)
 - [JavaScript Loops Explained](https://www.freecodecamp.org/news/javascript-loops-explained-for-loop-for/)
@@ -701,7 +615,71 @@ function draw() {
 - [Vera Molnar](https://magazine.artland.com/vera-molnar/)
 - [Manfred Mohr](http://www.emohr.com/)
 
-##### Functions
+Transformations:
+- Push Pop: need to do this before and after any transformation
+- Translate changes teh coordinate system so that 0,0 is in a new location
+- Rotate revolves around 0,0, so need to translate before doing rotate
+- Rotate takes radians as a parameter (remember radians define a circle being inbetween 0 and TWO_PI)
+
+  ````
+  let x = 20;
+  let y = 100;
+  let angle = PI;
+
+  push();
+  translate(x,y);
+  rotate(angle);
+  rect(0,0,50,50);
+  pop();
+  ````
+
+- Random takes either one number, which will give you psuedo-random numbers between 0 and that number, or two numbers, which will give you psuedo-random numbers between the two numbers provided.
+- Noise, developed by Ken Perlin, gives us random numbers that have some relationship to the other that came before. This allows us to create random-ness where we can still recognize patterns (think the leaves on a tree for example). Noise gives numbers out between 0 and 1, so it is easily scalable. The number we put into noise needs to be changing at the same rate to get proper results out of noise. frameCount is good for this, though increasing by integers is usually too large, so scaling frameCount down is important.
+  ````
+  let rectY = noise(frameCount*0.01) * height;
+  ````
+- Noise can take up to three parameters, which will give it some more individuality when used in a foor loop (for example):
+  ````
+  for (let x=0; x<width; x++){
+     let noiseValue = noise(frameCount * 0.01, x * 0.001);
+    // then change the range from 0 to 1 into -0.5 to 0.5
+    // then multiply that by 100 to get values that are between -50 and 50
+    let scaledNoise = (noiseValue - 0.5) * 100;
+    // add that to our rect's y location
+    rect(x, yLoc + scaledNoise, rectWidth, rectHeight);
+  }
+  ````
+
+  [Noise Rects example in class P5 editor](https://editor.p5js.org/aaronsherwood/sketches/E62Nup5TP)
+
+  [Nested For Loop P5 editor](https://editor.p5js.org/aaronsherwood/sketches/Qpcx02Z57)
+
+**Notes**
+- Operator precedence is [very
+	complicated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). It is best to put parenthesis to
+	force the order you want.
+
+[Back to top](#weekly-schedule)
+
+
+## Week 3
+
+### Week 3.1 - Feb 6
+
+#### Topics today
+- Reading discussion
+- Look at homework
+- Functions
+- Arrays
+- Object Oriented Programming
+  - [Class Syntax](https://javascript.info/class)
+
+Artist we looked at in class:
+- [Ryoichi Kurokawa](https://www.ryoichikurokawa.com/project.html)
+- [Jared Tarbell](http://www.complexification.net/gallery/) (co-founder of Etsy)
+- [Casey Reas](https://reas.com/)
+
+  ##### Functions
 
 Any questions about what we've covered already?
 
@@ -819,35 +797,13 @@ function mouseIsWithinRect( x, y, sizeX, sizeY) {
 
 ````
 
-**Notes**
-- Operator precedence is [very
-	complicated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). It is best to put parenthesis to
-	force the order you want.
-
-[Back to top](#weekly-schedule)
-
-<!--
-
-## Week 3
-
-### Week 3.1 - 9/18
-
-#### Topics today
-- Reading discussion
-- Look at homework
-- Arrays
-- Object Oriented Programming
-  - See examples in [Week 4](#week4)
-  - [Class Syntax](https://javascript.info/class)
-- Transformations
-
 #### Arrays
 
 Very simply, arrays let you store multiple things under one variable name, and
 let you identify which thing you want by using an `index`
 
 - [JavaScript Array Reference (w3schools)](https://www.w3schools.com/jsref/jsref_obj_array.asp)
-- [Week 3.2 - Arrays (p5editor)](https://editor.p5js.org/mangtronix/sketches/RgFNsZcxI)
+- [Arrays Example (p5editor)](https://editor.p5js.org/mangtronix/sketches/RgFNsZcxI)
 
 ````
 function setup() {
@@ -885,58 +841,42 @@ function setup() {
   - [JS Loop For (w3schools)](https://www.w3schools.com/js/js_loop_for.asp)
   - [JS Loop For Of (w3schools)](https://www.w3schools.com/js/js_loop_forof.asp)
 
-- See [Week 3.2 - Arrays (p5editor)](https://editor.p5js.org/mangtronix/sketches/RgFNsZcxI) for examples on how to insert and remove items
 
 #### Object Oriented Programming (OOP)
 
 - [JavaScript Classes (w3schools)](https://www.w3schools.com/js/js_classes.asp)
 - [Classes (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-Walk through these examples:
-- [Ball Class Example 1 (p5editor)](https://editor.p5js.org/mangtronix/sketches/VsFd39EN2)
-- [Ball Class Example 2 (p5editor)](https://editor.p5js.org/mangtronix/sketches/-7sWqG_Bu)
-- [Ball Class Example 3 (p5editor)](https://editor.p5js.org/mangtronix/sketches/zef9Vc-s7)
-- [Ball Class Example 4 (p5editor)](https://editor.p5js.org/mangtronix/sketches/M_G7Qs6Jf)
-- [Car Class Example (p5editor)](https://editor.p5js.org/mangtronix/sketches/ShJMnrrkW)
-- [Flocking example (p5js)](https://p5js.org/examples/simulate-flocking.html) (note: uses older '.prototype' way of emulating classes)
+Built a simple class with a sine wave moving circles around on screen:
+- [Week 3 - Simple Sine Circle OOP](https://editor.p5js.org/aaronsherwood/sketches/QEoQ5QXxr)
 
-#### Transformations
 
-Walk through
-[this](https://creative-coding.decontextualize.com/transformations-and-functions/)
-tutorial. You might also find
-[this](https://genekogan.com/code/p5js-transformations/) useful for a
-slightly different perspective.
 
-[Back to top](#weekly-schedule)
-
-### Week 3.2 - 9/20
+### Week 3.2 - Feb 8
 
 #### Plan for today
 
-- Discuss reading
-- Look at homework
+- In class exercise to change this car sketch into a class and have many cars going:
+ - [Basic Car](https://editor.p5js.org/aaronsherwood/sketches/eYFQE9EZa)
 
-- Artwork examples
-  - [Text Rain - Camille Utterback](http://camilleutterback.com/projects/text-rain/)
-  - Scott Snibbe
-    - [Boundary Functions (2001)](https://www.snibbe.com/art/boundaryfunctions)
-      - Uses [planar subdivision function in OpenCV](https://docs.opencv.org/3.4/df/d5b/group__imgproc__subdiv2d.html)
-      - [Voronoi Diagram (Wikipedia)](https://en.wikipedia.org/wiki/Voronoi_diagram)
-    - [Deep Walls (2002)](https://www.snibbe.com/art/deepwalls)
+Simple physics: just as we add veloticy to position, we can add acceleration to velocity. We can simulate a simple drag effect by scaling down velocity every frame. After using acceleration it should be reset to 0 every frame; You can experiment with adding different forces by setting acceleration.
 
-- Class examples
-  - [Week 4 - Choosing Students (p5editor)](https://editor.p5js.org/mangtronix/sketches/DMnZyF6Xc)
-  - [Week 4 - Fish class (p5editor)](https://editor.p5js.org/mangtronix/sketches/E-0n-8gIN)
-  - [Week 4 - Ball class with text (p5editor)](https://editor.p5js.org/mangtronix/sketches/0Vgh2i2lh)
+````
+velocity += acceleration;
+posX += velocity;
+velocity *= 0.9;
+acceleration *= 0;
+````
+
+[Simple Phyics P5 sketch](https://editor.p5js.org/aaronsherwood/sketches/-J2A-1epn)
 
 Additional p5js resources:
 - [Programming with p5.js (Coding Train)](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
 - [Introduction to p5.js](https://medium.com/comsystoreply/introduction-to-p5-js-9a7da09f20aa)
 
-##### Discuss reading
+  [Back to top](#weekly-schedule)
 
-##### Look at some homework
+<!--
 
 ## Week 4
 
