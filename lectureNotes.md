@@ -1020,7 +1020,7 @@ Format
 
 - Use {Google Trends](https://trends.google.com/trends/) to search a topic and get the search results in CSV format
 - Upload the file to your sketch
-[Line Graph with Google Trens - P5 Example](https://editor.p5js.org/aaronsherwood/sketches/UUNSai0-y)
+[Line Graph with Google Trends - P5 Example](https://editor.p5js.org/aaronsherwood/sketches/UUNSai0-y)
 
 
 ##### JSON and XML: Other file formats
