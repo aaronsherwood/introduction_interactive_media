@@ -894,6 +894,7 @@ Working Text and Data Examples:
 - [Jer Thorp](https://www.jerthorp.me/) 
 - [earth:: a global map of wind, weather, and ocean conditions](https://earth.nullschool.net/)
 - [Aaron Koblin](http://www.aaronkoblin.com/project/flight-patterns)
+- [Aaron's (Sherwood) Life Patterns](https://aaron-sherwood.com/blog/?p=755)
 
 ##### Text on the canvas
 
