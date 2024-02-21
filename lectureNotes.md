@@ -1039,16 +1039,21 @@ They are more complex than CSV, and again p5.js provides functions.
 
 [Back to top](#weekly-schedule)
 
-<!--
+
 ## Week 5
 
-### Week 5.1 - 10/2
+#### Plan for this week: 
+- Midterm Intro!
+    - Each student makes their own project
+- Look at homework
+-  Discuss Reading
+- Working with Images
+- Sprite sheets
+- Sound
+- Additional tutorials
+  - [Happy Coding p5js tutorials](https://happycoding.io/tutorials/p5js/) 
 
-#### Plan for today
-- Working with images!
-- The `pixels` array (time permitting)
-- Sound (time permitting)
-- Introducing midterm (time permitting)
+### Week 5.1 - 2/20
 
 #### Homework feedback to all:
 
@@ -1080,18 +1085,8 @@ is requested
 	car, name the variables `carWidth` and `carHeight`. `clr` and `rnd` I
 	could not figure out except by seeing how they were used, but I shouldn't
 	have to do that.
-- A function that only calls another function e.g.
-	is almost certainly pointless.
-	if there is a reason, it should be explained.
-````
-foo() {
-	this.bar()
-}
-````
 - If code is commented out, explain why
-- If the video clip is in your GitHub repo, embed it in the README.md
-	- If the video clip is on Vimeo or YouTube, put a link in your README.md
-- Tidy your code before putting it on GitHub
+- Tidy your code before posting
 - Use the correct suffix for your variables, classes, and functions. If a
 	class defines a single car, don't call it `cars`. If individual cars are
 	then gathered in an array of multiple cars, don't call it `arrayCar`.
@@ -1100,66 +1095,366 @@ foo() {
 	of `const CENTER = 200`) whenever possible. If you must use numbers
 	explain why.
 - Start your homework early so that there is time to meet with me if you
-	need help. I'm willing to meet on the weekend but not late Monday night.
+	need help.
+
+#### Smoothing!
+I have 15 cookies but need 17, how do I figure how many more cookies I need??? It's easy, subtract! `17-15=2`. 15 is our current amount and 17 is our destination, so in order to find the "direction" of how to go from our current location to our destination we subtract the current from the destination: `(destination-current)`. To smooth, we scale that down a little then add the partial distance back into our current location to move in the direction of our destination:
+````
+current=(destination-current)*0.1;
+````
 
 #### Working with images!
 
-The `p5.Image` class
-- Just another class, i.e. it has
-	- Data (the pixels, width, height, etc.)
-	- Functionality `(image()`, `get()`, etc.)
-
+[Image basics](https://editor.p5js.org/aaronsherwood/sketches/H1vMpFsex):
 ````
-let catImg;
+let img;
+
+// use preload to load the image you uploaded
 function preload() {
-  photo = loadImage("https://placekitten.com/400/400");
+  img = loadImage("fruits.png");
 }
+
 function setup() {
-  createCanvas(400, 400);
-  background(255);
-  image(photo, 0, 0); // this actually displays the image
+  createCanvas(512, 512);
+}
+
+function draw() {
+  // draw an image
+  image(img, 0, 0, width, height);
+
+  // get a subsection
+  let section0 = img.get(0, 0, 250, 150);
+  // use tint to change color, push/pop to not affect other stuff
+  push();
+  tint(255, 0, 200);
+  image(section0, 0, 0);
+  pop();
+
+  // get another subsection
+  // want to draw it in middle of screen so need center mode
+  // push/pop for that
+  // and subtract half of the desired width/height from the mouse position
+  // in order to get the center of the section around the mouse
+  let section1 = img.get(mouseX - 100, mouseY - 100, 200, 200);
+  push();
+  imageMode(CENTER);
+  image(section1, width / 2, height / 2);
+  pop();
 }
 ````
 
-- `image(photo, positionX, positionY, width, height)` - display 
-this image at this location and scale to this size
-- `photo.resize(w,h)` - scale to this size. If one of the arguments is zero,
-	then scale to the remaining argument and retain the original aspect ratio.
-- `photo.get(x,y,w,h)` - Returns a new p5.Image containing a portion of the image
-- `photo.get(x,y)` - Returns the color of the pixel at this location
+Can we use a sequence of images for animation? Yes!
 
+[Week 5 - Spritesheets](https://editor.p5js.org/aaronsherwood/sketches/H7D2yV3he)
 ````
-let catImg;
+let spritesheet;
+let sprites = [];
+let direction = 1; // 0 up
+let step = 0;
+let x;
+let y;
+let speed = 5;
+let stepSpeed = 60;
+let animationTimer;
+
 function preload() {
-  catImg = loadImage("https://placekitten.com/400/400");
+  spritesheet = loadImage("walking.png");
 }
-function setup() {
-  createCanvas(400, 400);
-  background(255);
-  image(catImg, 0, 0);
 
-  let newImg = catImg.get( 50,60, 100,50);
-  image (newImg, 250, 200);
+function setup() {
+  createCanvas(600, 600);
+  imageMode(CENTER);
+
+  // get the width and hieght of each sprite
+  let w = spritesheet.width / 12;
+  let h = spritesheet.height / 4;
+
+  // there are four rows, create a for loop to iterate through them
+  for (let y = 0; y < 4; y++) {
+    // create another emoty array for that row
+    sprites[y] = [];
+    // there are 12 images in a row, iterate through them
+    for (let x = 0; x < 12; x++) {
+      // get the image subsection there and then stor in the array
+      sprites[y][x] = spritesheet.get(x * w, y * h, w, h);
+    }
+  }
+
+  x = width / 2;
+  y = height / 2;
+}
+
+function draw() {
+  background(255);
+
+  //look at sprite sheet to determine which direction is which
+  // use isKeyPressed here to get continuous key presses
+  if (isKeyPressed == true) {
+    if (keyCode == DOWN_ARROW) {
+      direction = 0;
+      y += speed;
+    }
+    if (keyCode == LEFT_ARROW) {
+      direction = 1;
+      x -= speed;
+    }
+    if (keyCode == RIGHT_ARROW) {
+      direction = 2;
+      x += speed;
+    }
+    if (keyCode == UP_ARROW) {
+      direction = 3;
+      y -= speed;
+    }
+  }
+
+  // the first part choose the diretion (or row)
+  // and the second part (the step) chooses the proper image from that row
+  image(sprites[direction][step], x, y);
+}
+
+function advanceStep() {
+  step = (step + 1) % 12;
+}
+
+function keyPressed() {
+  // use the javascript setInterval function that will
+  // call a function repeatedly at a given milliseconds interval
+  // supply setInterval with a function that will run the animation steps
+  
+  // but first! clear any interval that already might be running
+  // to account for accidental multiple keypresses
+  clearInterval(animationTimer)
+  
+  // then set the interval
+  animationTimer = setInterval(advanceStep, stepSpeed); // stepSpeed is our global variable that is the milliseconds for the interval
+}
+
+function keyReleased() {
+  // when a key is released clear the interval
+  clearInterval(animationTimer);
+}
+
+````
+
+You can probably find many sprite sheets by googling "sprite sheet" +
+whatever you want.
+
+##### Working in groups (time permitting):
+Work together to use the running cat spritesheet.
+
+### Week 5.2 - 2/22
+
+#### Sound!
+
+[Week 5 - Short Sound File](https://editor.p5js.org/aaronsherwood/sketches/-3KLG9EiT)
+````
+let sounds = [];
+let currentFile;
+let hue = 360;
+let lastFrameKeyPressed = false;
+
+function preload() {
+  for (let i = 0; i < 5; i++) {
+    let fileName = "sounds/" + i + ".mp3";
+    print(fileName);
+    sounds[i] = loadSound(fileName);
+  }
+}
+
+function setup() {
+  createCanvas(600, 600);
+
+  currentFile = sounds[Math.floor(random(5))];
+  colorMode(HSB, 360, 100, 100);
+}
+
+function draw() {
+  background(0);
+  if (currentFile.isPlaying()) {
+    background(hue, 100, 100);
+  }
+  
+  // if calling play repeatedly you'll get noise
+  // checking to see if file is finished playing before triggering again is one solution
+  if (keyIsPressed && !currentFile.isPlaying()) {
+    currentFile = sounds[Math.floor(random(5))];
+    currentFile.play();
+    hue = random(360);
+  }
+  
+  // another option is making sure that the last frame was not pressed
+  // if (keyIsPressed && !lastFrameKeyPressed) {
+  //   currentFile = sounds[Math.floor(random(5))];
+  //   currentFile.play();
+  //   hue = random(360);
+  // }
+  
+  lastFrameKeyPressed = keyIsPressed;
+}
+
+function mousePressed() {
+  currentFile = sounds[Math.floor(random(5))];
+  currentFile.play();
+  hue = random(360);
 }
 ````
 
-For more information and ideas
-- Reference page for p5.Image for other methods
-- Examples -> image
+As always, it's useful to explore the examples and the reference page
+
+- Sound examples
+	- File -> Examples -> Sound
+		- [Load and Play Sound](https://editor.p5js.org/p5/sketches/Sound:_Load_and_Play_Sound)
+		- [Sound Effect](https://editor.p5js.org/p5/sketches/Sound:_Sound_Effect)
+		- [Record Save](https://editor.p5js.org/p5/sketches/Sound:_Record_Save)
+		- [Live Input](https://editor.p5js.org/p5/sketches/Sound:_Live_Input)
+ 
+[Week 5 - Looping Files](https://editor.p5js.org/aaronsherwood/sketches/w-rnSqX2U)
+````
+let soundfiles = [];
+
+//array to hold the volumes for each track
+let volumes = [];
+//array to hold the volume destinations, to smoothly fade in and out
+let volumeDestinations = [];
+
+let currentHue = 100;
+let currentTextHue = 255;
+let currentMessage = "";
+
+//all included soundfiles are 120bpm
+
+function preload() {
+  //load the sound files
+  for (let i = 0; i < 5; i++) {
+    let fileName = "sounds/" + i + ".mp3";
+    print(fileName);
+    soundfiles[i] = loadSound(fileName);
+  }
+}
+
+function setup() {
+  createCanvas(600, 600);
+  colorMode(HSB);
+  noStroke();
+
+  for (let i = 0; i < soundfiles.length; i++) {
+    soundfiles[i].loop(); // set all the files to loop
+    soundfiles[i].setVolume(0); // turn the volume down
+    volumes[i] = 0; // store the volume as all the way down
+    volumeDestinations[i] = 0; // set are current destination to the same
+  }
+}
+
+function draw() {
+  background(currentHue, 255, 255);
+  drawText();
+
+  // assume nothing is still playing, 
+  // and then change later if we find something that is playing
+  let stillPlaying = false;
+  for (let i = 0; i < soundfiles.length; i++) {
+    //set volume
+    // do smoothing and save the new value to the volumes array
+    volumes[i] = smoothing(volumes[i], volumeDestinations[i]);
+    //set the volume
+    soundfiles[i].setVolume(volumes[i]);
+    //continuously fade volume out
+    volumeDestinations[i] -= 0.1;
+    //constrian the fade out to 0
+    volumeDestinations[i] = constrain(volumeDestinations[i], 0, 1);
+    //check to see if any sound is still playing
+    if (volumeDestinations[i] > 0) stillPlaying = true;
+  }
+  //if nothing is playing remove the track number on the screen
+  if (!stillPlaying) {
+    currentMessage = "";
+  }
+}
+
+//see what section the of the screen the mouse is in
+//set the message and play the track
+function mouseMoved() {
+  let track = 0;
+  if (mouseX < width / 5) track = 1;
+  else if (mouseX < (width / 5) * 2) track = 2;
+  else if (mouseX < (width / 5) * 3) track = 3;
+  else if (mouseX < (width / 5) * 4) track = 4;
+  else if (mouseX < width) track = 5;
+  showMessage(track);
+  changeTracks(track);
+}
+
+function showMessage(i) {
+  currentHue = generateColor(i);
+  currentTextHue = generateColor(i + 1);
+  currentMessage = i;
+}
+
+//Write instructions to screen.
+function drawText() {
+  push();
+  textFont("Arial", 14);
+  textAlign(LEFT, TOP);
+  fill(currentTextHue, 255, 255);
+  text("Move mouse horizontally to make sound", 10, 10);
+  pop();
+
+  push();
+  textFont("Arial", 80);
+  textAlign(CENTER);
+  fill(currentTextHue, 255, 255);
+  text(currentMessage, width / 2, height / 2);
+  pop();
+}
+
+function generateColor(which) {
+  // account for going below zero, just set to 100
+  if (which <= 0) {
+    return 100;
+  } else {
+    return (generateColor(which - 1) + 1.61 * 360) % 360;
+  }
+}
+
+function changeTracks(whichTrack) {
+  //playing only one sound at a time
+  //but you can easily make files overlap if you want
+  for (let i = 0; i < soundfiles.length; i++) {
+    volumeDestinations[i] = 0;
+  }
+  volumeDestinations[whichTrack - 1] = 1;
+}
+
+//smoothing for fading in and out
+function smoothing(current, destination) {
+  current += (destination - current) * 0.5;
+  return current;
+}
+
+````
+
+**Remember**
+Sound requires a separate library which must be included and to record sound it has to be enabled in the
+security preferences.
+
+##### Sound Synthesis
+
+The other way to make sounds is to create them mathematically
+
+- Sound examples
+	- File -> Examples -> Sound
+		- [Note Envelope](https://editor.p5js.org/p5/sketches/Sound:_Note_Envelope)
+		- [Frequency Modulation](https://editor.p5js.org/p5/sketches/Sound:_FreqModulation)
 
 
+##### Working in groups (time permitting):
+If we had multiple sound files, how would we create an interface to switch tracks using the mouse?
 
-#### Plan for this week: 
-- Reading discussion
-- Look at homework
+[Back to top](#weekly-schedule)
 
-- Pixels array
-- Sprite sheets
-- Sound
-- Introduce midterm project
-  - Each student makes their own project
-- Additional tutorials
-  - [Happy Coding p5js tutorials](https://happycoding.io/tutorials/p5js/) 
+<!--
+## Week 6
 
 #### The `pixels` array: Treating the canvas as an image
 
@@ -1352,174 +1647,6 @@ function keyPressed() {
   loop();
 }
 ````
-
-Can we use a sequence of images for animation?
-
-![](media/walking.png)
-
-
-Download this to your laptop: 
-https://github.com/michaelshiloh/IntroductionToInteractiveMedia/blob/master/media/walking.png
-
-How would we use them?
-
-[Week 5 - Walk animation](https://editor.p5js.org/mangtronix/sketches/33cCGQMvQ)
-````
-let spritesheet;
-let sprites = [];
-let direction = 1; // 0 up
-let step = 0;
-let x;
-let y;
-let speed = 3;
-
-function preload() {
-  spritesheet = loadImage("walking.png");
-}
-
-function setup() {
-  // fullscreen(true);
-  createCanvas(500, 450);
-
-  // 12 images across, 4 down, in the spritesheet
-
-  let w = int(spritesheet.width / 12);
-  let h = int(spritesheet.height / 4);
-
-  for (let y = 0; y < 4; y++) {
-    sprites[y] = [];
-    for (let x = 0; x < 12; x++) {
-      sprites[y][x] =
-        spritesheet.get(x * w, y * h, w, h);
-    } // iterate over rows
-  } // iterate over columns
-
-  x = width / 2;
-  y = height / 2;
-
-  imageMode(CENTER);
-
-	// Display first sprite
-  image(sprites[direction][step], x, y);
-}
-
-// nothing to do here because all the action
-// happens in the keyPressed() callback
-function draw() {}
-
-function keyPressed() {
-  // look at sprite sheet to determine 
-  // which direction is which row
-
-  if (keyCode === DOWN_ARROW) {
-    direction = 0;
-    y += speed;
-  }
-
-  if (keyCode === LEFT_ARROW) {
-    direction = 1;
-    x -= speed;
-  }
-
-  if (keyCode === RIGHT_ARROW) {
-    direction = 2;
-    x += speed;
-  }
-
-  if (keyCode === UP_ARROW) {
-    direction = 3;
-    y -= speed;
-  }
-
-	// Every so often 
-	// advance to the next sprite
-  if (frameCount % speed == 0) {
-    step = (step + 1) % 12;
-  }
-
-	// Finally draw paint the sprite
-  background(255);
-  image(sprites[direction][step], x, y);
-}
-
-````
-
-You can probably find many sprite sheets by googling "sprite sheet" +
-whatever you want.
-
-
-#### Sound!
-
-Upload this to your p5 editor: 
-https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/media/doorbell.mp3
-
-Very basic example:
-
-[Week 5 - Sound](https://editor.p5js.org/mangtronix/sketches/JA0W5jhOJ)
-````
-/*
-Must upload doorbell.mp3
-Must include sound library in index.html
-*/
-
-function preload() {
-  song = loadSound('doorbell.mp3');
-}
-
-function setup() {
-  background(234);
-  song.play();
-}
-
-function draw() {
-  if (song.isPlaying()) {
-    print("song is playing")
-  } else {
-    print("song is not playing")
-    noLoop
-  }
-}
-
-function mouseClicked() {
-  if (song.isPlaying()) {
-    song.stop();
-  } else {
-    song.play();
-  }
-}
-````
-
-As always, it's useful to explore the examples and the reference page
-
-- Sound examples
-	- File -> Examples -> Sound
-		- [Load and Play Sound](https://editor.p5js.org/p5/sketches/Sound:_Load_and_Play_Sound)
-		- [Sound Effect](https://editor.p5js.org/p5/sketches/Sound:_Sound_Effect)
-		- [Record Save](https://editor.p5js.org/p5/sketches/Sound:_Record_Save)
-		- [Live Input](https://editor.p5js.org/p5/sketches/Sound:_Live_Input)
-
-**Remember**
-Sound requires a separate library which must be included and to record sound it has to be enabled in the
-security preferences.
-
-##### Sound Synthesis
-
-The other way to make sounds is to create them mathematically
-
-- Sound examples
-	- File -> Examples -> Sound
-		- [Note Envelope](https://editor.p5js.org/p5/sketches/Sound:_Note_Envelope)
-		- [Frequency Modulation](https://editor.p5js.org/p5/sketches/Sound:_FreqModulation)
-
-
-##### Working in groups (time permitting):
-If we had multiple sound files, how would we play the
-next one when we click the mouse?
-
-[Back to top](#weekly-schedule)
-
-
-## Week 6
 
 ### Week 6.1 - 10/9
 #### Plan for today: 
