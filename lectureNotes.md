@@ -1601,6 +1601,7 @@ function draw() {
 Look at the reference page for the pixels array.
 
 There are many different things you can do just playing with pixels: 
+
 [Week 6 - Playing with pixels](https://editor.p5js.org/aaronsherwood/sketches/eGC1Gs9Az)
 
 Frame differencing is where you subtract all the pixels of the previous frame from all the pixels of the current frame. This gives you motion detection. It's pretty simple but actually can achieve a lot:
