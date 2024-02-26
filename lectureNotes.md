@@ -1453,8 +1453,18 @@ If we had multiple sound files, how would we create an interface to switch track
 
 [Back to top](#weekly-schedule)
 
-<!--
 ## Week 6
+
+### Week 6.1 - 2/27
+#### Plan for today: 
+Tool training!
+
+### Week 6.2 - 2/29
+
+#### Agenda for today:
+- Computer Vision/Work session
+
+#### Computer Vision!
 
 #### The `pixels` array: Treating the canvas as an image
 
@@ -1467,7 +1477,6 @@ and after making any changes you must call `updatePixels()`
 to write from the `pixels` array back to the canvas
 if you want to make the changes visible
 
-[Week 5 - updatePixels](https://editor.p5js.org/mangtronix/sketches/MrA1DHw6t)
 ````
 function setup() {
   let pink = color(255, 102, 204);
@@ -1492,7 +1501,6 @@ you need to offset by that many widths
    (x + y * width) * 4
 - Remember to set `pixelDensity(1);` in case you have a high 
 resolution display
-
 
 ````
 function setup() {
@@ -1590,210 +1598,112 @@ function draw() {
 }
 ````
 
-Look at the reference page for the pixels array
+Look at the reference page for the pixels array.
 
-A fun examples from Professor Sherwood:
+There are many different things you can do just playing with pixels: 
+[Week 6 - Playing with pixels](https://editor.p5js.org/aaronsherwood/sketches/eGC1Gs9Az)
 
-![](media/circularImages.png)
+Frame differencing is where you subtract all the pixels of the previous frame from all the pixels of the current frame. This gives you motion detection. It's pretty simple but actually can achieve a lot:
 
-````
-let tiles = [];
-let tileSize = 100;
-
-function preload() {
-  img = loadImage("aiweiwei.jpeg");
-}
-
-function setup() {
-  createCanvas(400, 400);
-  let numTiles = img.height / tileSize;
-  while (numTiles > 0) {
-    tiles.push(
-      img.get(
-        int(random(img.width - tileSize)),
-        int(random(img.height - tileSize)),
-        tileSize,
-        tileSize
-      )
-    );
-    numTiles--;
-  }
-  imageMode(CENTER);
-}
-
-function draw() {
-  push();
-  translate(width / 2, height / 2);
-
-  let numSegments = 10;
-  let eachAngle = TWO_PI / numSegments;
-  let whichImage = int(random(tiles.length));
-
-  for (let i = 0; i < numSegments; i++) {
-    let x = cos(eachAngle * i) * tileSize + 1;
-    let y = sin(eachAngle * i) * tileSize + 1;
-    push();
-    translate(x, y);
-    rotate(eachAngle * i);
-    image(tiles[whichImage], 0, 0);
-    pop();
-  }
-
-  pop();
-  noLoop();
-}
-
-function keyPressed() {
-  loop();
-}
-````
-
-### Week 6.1 - 10/9
-#### Plan for today: 
-- Announcements
-  - Computer vision on Wednesday
-  - Midterm presentations on Monday
-  - First class after break (Saturday) will be assigned asynchronous video tutorials
-- Discussion of reading 
-  - [Leading online database to remove 600,000 images after art project reveals its racist bias](https://www.theartnewspaper.com/2019/09/23/leading-online-database-to-remove-600000-images-after-art-project-reveals-its-racist-bias)
-- Midterm project idea feedback
-  - General questions?
-  - Quick individual feedback
-- Example of [Draggable class - click drag example (p5editor)](https://editor.p5js.org/codingtrain/sketches/U0R5B6Z88)
-- Computer Vision
-	- Frame Differencing
-
-- Posenet (time permitting)
-  - Check examples / demos - [ml5js Posenet reference](https://learn.ml5js.org/#/reference/posenet)
-  - Also see [Handsfree.js](https://handsfreejs.netlify.app/#installing) for gesture recognition
-    - possible to record your own gestures based on finger positions
-
-- Text input
-  - [Text input example (p5editor)](https://p5js.org/examples/dom-input-and-button.html)
-
-#### Homework feedback
-
-#### Working with a camera: Computer Vision!
-
-Basic sketch showing how to get input from camera:
-
-[Week 6 - Capture](https://editor.p5js.org/mangtronix/sketches/srrGqhU3f)
+[Week 6 - Frame Differencing](https://editor.p5js.org/aaronsherwood/sketches/DJaFY9Vol)
 ````
 let capture;
+let previousPixels;
 
 function setup() {
-  createCanvas(200, 200);
+  createCanvas(640, 360);
   capture = createCapture(VIDEO);
+  capture.size(640, 360);
   capture.hide();
+  pixelDensity(1);
+  noStroke();
+}
+
+function copyImage(src, dst) {
+  let n = src.length;
+  if (!dst || dst.length != n) dst = new src.constructor(n);
+  while (n--) dst[n] = src[n];
+  return dst;
 }
 
 function draw() {
-  image(capture, // what image to display
-        0, 0,    // where to place the image on the canvas
-        width,   // width to display
-
-        // the height is more complicated:
-        // we want the capture height to be
-        // the width multiplied by the aspect ratio
-        width * capture.height / capture.width);
+  capture.loadPixels();
+  let total = 0;
+  if (capture.pixels.length > 0) {
+    // don't forget this!
+    if (!previousPixels) {
+      previousPixels = copyImage(capture.pixels, previousPixels);
+    } else 
+    {
+      let thresholdAmount = 50;
+      thresholdAmount *= 3; // 3 for r, g, b
+      for (let y = 0; y < capture.height; y++) {
+        for (let x = 0; x < capture.width; x++) {
+          let index = 4 * (x + y * width);
+          // calculate the differences
+          let rdiff = Math.abs(
+            capture.pixels[index + 0] - previousPixels[index + 0]
+          );
+          let gdiff = Math.abs(
+            capture.pixels[index + 1] - previousPixels[index + 1]
+          );
+          let bdiff = Math.abs(
+            capture.pixels[index + 2] - previousPixels[index + 2]
+          );
+          // copy the current pixels to previousPixels
+          previousPixels[index + 0] = capture.pixels[index + 0];
+          previousPixels[index + 1] = capture.pixels[index + 1];
+          previousPixels[index + 2] = capture.pixels[index + 2];
+          let diffs = rdiff + gdiff + bdiff;
+          let output = 0;
+          if (diffs > thresholdAmount) {
+            output = 255;
+            total += diffs;
+          }
+          capture.pixels[index] = output;
+          capture.pixels[index + 1] = output;
+          capture.pixels[index + 2] = output;
+          // also try this:
+          // capture.pixels[i++] = rdiff;
+          // capture.pixels[i++] = gdiff;
+          // capture.pixels[i++] = bdiff;
+        }
+      }
+    }
+  }
+  // need this because sometimes the frames are repeated
+  if (total > 0) {
+    capture.updatePixels();
+    image(capture, 0, 0, 640, 480);
+  }
+  
+  let avgMotion=total/capture.pixels.length;
+  fill(255);
+  rect(0,height-avgMotion*20,100,height);
 }
 ````
 
-Reference page for
-[createCapture](https://p5js.org/reference/#/p5/createCapture)
+You can test for motion in certain parts of the camera feed by seeing if the motion is above a certain threshold based on the pixel locations:
+````
+if (x>100 && x<200 && y >100 && y<200){
+              triggerThresholdCounter++;
+            }
+````
 
-Some video examples:
-- [Simple frame differencing](https://editor.p5js.org/michaelshiloh/sketches/ZqXC5-6M0), similar to the method in Golan Levin's article
-- A more complex
-	[example](https://editor.p5js.org/aaronsherwood/sketches/uxNAkReWT) by Prof.
-	Aaron that uses frame differencing to detect which vertical slice of the
-	camera image has the most motion, and trigger a corresponding sound clip
+Further examples of using this technique:
+- [Week 6 - Trigger Sounds in Space](https://editor.p5js.org/aaronsherwood/sketches/Bn6nqoQ90)
+- [Week 6 - Playing Looping Sounds in Space](https://editor.p5js.org/aaronsherwood/sketches/uxNAkReWT)
 
-Posenet
-  - Skeleton extraction from image using machine learning
-  - [ml5.js - Friendly Machine Learning for the Web](https://learn.ml5js.org/#/)
-  - [ml5js Posenet](https://learn.ml5js.org/#/reference/posenet)
-  - [Posenet example (p5editor)](https://editor.p5js.org/ml5/sketches/PoseNet_webcam)
-  - [Posenet example 1 (Coding Train / p5editor)](https://editor.p5js.org/codingtrain/sketches/ULA97pJXR)
+Many more useful computer vision algorithm examples available on: 
+[Kyle McDonald's website](https://kylemcdonald.github.io/cv-examples/).
 
-### Week 6.2 - 10/9
-#### Plan for today: 
-- Distribute Arduino kits
-  - You need to provide your own hub / dongle to connect to your computer
-    - Test it - Not all hubs work
-  - Homework for [Saturday 11/29 (Legislative Wednesday)](lectureNotes2.md#week-79) is to get your Arduino LED blinking
-- Review frame differencing
-- Project status
-- Debugging
-  - [A Brief Introduction to Debugging (Vimeo, ITP)](https://vimeo.com/channels/debugging)
-  - [p5js Field Guide to Debugging](https://p5js.org/learn/debugging.html)
-  - [p5js Debugging (Happy Coding)](https://happycoding.io/tutorials/p5js/debugging)
+#### Extras:
+
+##### Debugging
+- [A Brief Introduction to Debugging (Vimeo, ITP)](https://vimeo.com/channels/debugging)
+- [p5js Field Guide to Debugging](https://p5js.org/learn/debugging.html)
+- [p5js Debugging (Happy Coding)](https://happycoding.io/tutorials/p5js/debugging)
 - [p5js Interactivity](https://p5js.org/learn/interactivity.html)
-  - Mouse and keyboard examples
-- Work session
-
-#### Review frame differencing
-- If you wanted to display white (instead of the color of the difference)
-	wherever motion above a certain threshold is detected, how would you do this?
-- Video Mirror (flipping the x)
-	- https://editor.p5js.org/aaronsherwood/sketches/cK59ueQ6a
-- In class exercise: Can you trigger sounds according to where there is
-	motion?  You might want to borrow ideas from
-	[here](https://editor.p5js.org/aaronsherwood/sketches/uxNAkReWT)
-
-#### Random items
-
-##### Grids
-- An [example](https://editor.p5js.org/itp42/sketches/dBeLZC8mm) by Prof.
-	Mathura showing how to create and move in a grid
-
-##### Perlin Noise
-
-[Week 6 - Random line](https://editor.p5js.org/mangtronix/sketches/nWUFIeBEL)
-````
-function draw() {
-  background(204);
-  let n = random(0, width);
-  line(n, 0, n, height);
-}
-````
-
-What if we wanted the line to move in a more organic, lifelike
-fashion? Organic things (e.g. butterflies, leaves blowing in the wind, clouds) 
-don't jump instantly from one place to another,
-they tend to move close to where they were last time
-
-
-[Week 6 - Perlin noise line](https://editor.p5js.org/mangtronix/sketches/FrQDtMNmd)
-````
-let offset = 0.0;
-
-function draw() {
-  background(204);
-  offset = offset + .01;
-  let n = noise(offset) * width;
-  line(n, 0, n, height);
-}
-````
-
-Things to notice:
-
-- Why is the variable `offset` global? (Remember our discussion of variable
-	scope)
-
-##### Other things you can do with arrays
-
-Look at other array methods in the reference page:
-- `append`
-- `pop` 
-- [Week 6 - Removing array elements (p5editor)](https://editor.p5js.org/mangtronix/sketches/0i8RVCZDD)
-
-
-##### Blocking vs. non-blocking functions
-
-- What are blocking and non-blocking functions?
-- How do you know when a non-blocking function is done?
-- Soundfile reference page
 
 ##### Game techniques
 - [Week 6 - Game State](https://editor.p5js.org/mangtronix/sketches/lwALEq10U)
@@ -1812,11 +1722,9 @@ Look at other array methods in the reference page:
 A nice set of p5.js tutorials by [Happy
 Coding](https://happycoding.io/tutorials/p5js/)
 
-
-
-
 [Back to top](#weekly-schedule)
 
+<!--
 ## Week 7
 ### Week 7.1 - 10/16
 #### Plan for today: 
