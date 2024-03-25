@@ -1796,7 +1796,7 @@ Image courtesy of
 
 Here is how to build the circuit
 
-![](media/ArduinoPoweringLED_bb.png)
+![](media/basicLed-1200x887.png)
 
 
 **Theory**
