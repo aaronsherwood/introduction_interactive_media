@@ -1908,18 +1908,11 @@ Make sure everything is working
 
 [Back to top](#weekly-schedule)
 
-<!--
-
 ## Week 9
 
-### Week 9.1 - 11/6 - Arduino Digital / Analog IO
-#### Plan for today: 
+### Arduino Digital / Analog IO
 
-- Review basic Arduino and Digital Output
-- Digital Input
-- Analog Input (time permitting)
-
-#### Review basic Arduino and Digital Output
+#### Digital Output
 
 Upload File -> Examples -> Basic -> Blink example
 
@@ -2026,6 +2019,8 @@ Now write a program that will blink different patterns depending on which
 switch is pressed. 
 Using two switches you can select between four patterns.
 How is that possible?
+
+<!--
 
 ### Week 9.2 - 11/8 - Arduino Programming Syntax
 #### Plan for today: 
