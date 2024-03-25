@@ -12,9 +12,9 @@
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
 - [Week 8a](#week-8a) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
-- [Week 9](#week-8) - Introduction to Arduino, electricity cont.
-- [Week 10](#week-9) - Analog and digital I/O
-- [Week 8b](#week-10) - Sound, movement, circuit schematics, No class Apr 11
+- [Week 9](#week-9) - Introduction to Arduino, electricity cont.
+- [Week 10](#week-10) - Analog and digital I/O
+- [Week 8b](#week-8b) - Sound, movement, circuit schematics, No class Apr 11
 - [Week 11](#week-11) - Connecting Arduino to p5.js
 - [Week 12](#week-12) - Motors
 - [Week 13](#week-13) - Circuit debugging, soldering, fabricating
