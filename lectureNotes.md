@@ -11,7 +11,7 @@
 - [Week 6](#week-6) - Computer Vision
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
-- [Week 8a](#week-79) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
+- [Week 8a](#week-8a) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
 - [Week 9](#week-8) - Introduction to Arduino, electricity cont.
 - [Week 10](#week-9) - Analog and digital I/O
 - [Week 8b](#week-10) - Sound, movement, circuit schematics, No class Apr 11
@@ -1726,38 +1726,7 @@ Coding](https://happycoding.io/tutorials/p5js/)
 [Back to top](#weekly-schedule)
 
 
-## Week 7
-### Week 7.1 - 10/16
-#### Plan for today: 
-- Midterm projects: Share in a group
-
-- Homework:
-  - Check [main page](https://intro.nyuadim.com/)
-  - Bring any adapter you need from USB-A to your computer for the first class after the break
-
-## FALL BREAK / FALL BREAK / FALL BREAK
-
-## Week 7.9
-### Week 7.9 - 10/28 SATURDAY - Legislative Wednesday
-- No class in lab, complete assignment asynchronously
-
-**Install** the Arduino 2.x IDE before class ([download](https://www.arduino.cc/en/software), [installation instructions](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing)).
-
-**Watch** [What is Arduino and can I use it for my project? (YouTube)](https://www.youtube.com/watch?v=CSx6k-zXlLE)
-
-**Run** the blink sketch
-
-- Making an LED blink
-  -  Arduino IDE -> File -> Examples 01.Basics -> Blink
-  -  [LED (Wikipedia)](https://en.wikipedia.org/wiki/Light-emitting_diode)
-  -  [Making the Arduino Blinking LED Project (Arduino Intro)](https://arduinointro.com/projects/making-the-arduino-blinking-led-project-a-complete-tutorial)
-
-Make sure everything is working
-
-- Upload the Blink example
-- Change the parameter in delay()
-- Upload again and verify that the LED blinks at the new rate
-
+## SPRING BREAK / SPRING BREAK / SPRING BREAK
 
 ## Week 8a
 
@@ -1795,8 +1764,8 @@ Image courtesy of
 [SparkFun](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all)
 
 Here is how to build the circuit
-
-![](media/ArduinoPoweringLED_bb.png)
+![](media/base_bb-1200x887.png)
+![](media/basicLed-1200x887.png)
 
 
 **Theory**
@@ -1856,7 +1825,7 @@ understand and use them**
 Let's use a real switch
 
 ![](media/ArduinoPoweringLEDWithSwitch_schem.png)
-![](media/ArduinoPoweringLEDWithSwitch_bb.png)
+![](media/basicLed_button.png)
 
 - How is this switch different from the earlier switch?
 	- Schematic symbol of momentary switch
