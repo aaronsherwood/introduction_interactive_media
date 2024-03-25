@@ -1725,6 +1725,11 @@ Coding](https://happycoding.io/tutorials/p5js/)
 
 [Back to top](#weekly-schedule)
 
+## Week 7
+
+Midterms! (and computer vision)
+
+[Back to top](#weekly-schedule)
 
 ## SPRING BREAK / SPRING BREAK / SPRING BREAK
 
