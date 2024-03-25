@@ -11,7 +11,7 @@
 - [Week 6](#week-6) - Computer Vision
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
-- [Week 8a](#week-79) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
+- [Week 8a](#week-8a) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
 - [Week 9](#week-8) - Introduction to Arduino, electricity cont.
 - [Week 10](#week-9) - Analog and digital I/O
 - [Week 8b](#week-10) - Sound, movement, circuit schematics, No class Apr 11
