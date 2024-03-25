@@ -11,10 +11,10 @@
 - [Week 6](#week-6) - Computer Vision
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
-- [Week 7.9](#week-79) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
-- [Week 8](#week-8) - Introduction to Arduino, electricity cont.
-- [Week 9](#week-9) - Analog and digital I/O
-- [Week 10](#week-10) - Sound, movement, circuit schematics, No class Apr 11
+- [Week 8a](#week-79) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
+- [Week 9](#week-8) - Introduction to Arduino, electricity cont.
+- [Week 10](#week-9) - Analog and digital I/O
+- [Week 8b](#week-10) - Sound, movement, circuit schematics, No class Apr 11
 - [Week 11](#week-11) - Connecting Arduino to p5.js
 - [Week 12](#week-12) - Motors
 - [Week 13](#week-13) - Circuit debugging, soldering, fabricating
@@ -1725,7 +1725,7 @@ Coding](https://happycoding.io/tutorials/p5js/)
 
 [Back to top](#weekly-schedule)
 
-<!--
+
 ## Week 7
 ### Week 7.1 - 10/16
 #### Plan for today: 
@@ -1759,21 +1759,9 @@ Make sure everything is working
 - Upload again and verify that the LED blinks at the new rate
 
 
-## Week 8
+## Week 8a
 
-### Week 8.1 - 10/30 - Introduction to Arduino
-
-##### Mid-term feedback
-- Sound not playing on initial sketch load
-  - Most browsers require user interaction (e.g. click) before playing sound
-
-#####  Mid-semester feedback
-
-- What was the more surprising thing you learned so far in this class?
-- What was the more important thing you learned so far in this class?
-- What would you like more of?
-- What would you like less of?
-- What do you wish we'd talk about, or learn, that we haven't?
+### 3/21 - Introduction to Arduino
 
 ##### Introduction to Arduino
 - [What is an Arduino? (Sparkfun)](https://learn.sparkfun.com/tutorials/what-is-an-arduino/all)
@@ -1789,10 +1777,7 @@ Make sure everything is working
 - Making an LED blink
   -  Arduino IDE -> File -> Examples 01.Basics -> Blink
   -  [LED (Wikipedia)](https://en.wikipedia.org/wiki/Light-emitting_diode)
-  -  [Making the Arduino Blinking LED Project (Arduino Intro)](https://arduinointro.com/projects/making-the-arduino-blinking-led-project-a-complete-tutorial)
-
-### Week 8.2 - 11/1
-#### Plan for today: 
+  -  [Making the Arduino Blinking LED Project (Arduino Intro)](https://arduinointro.com/projects/making-the-arduino-blinking-led-project-a-complete-tutorial) 
 
 - Electricity
 - Schematics
@@ -1922,6 +1907,8 @@ Make sure everything is working
 - Upload again and verify that the LED blinks at the new rate
 
 [Back to top](#weekly-schedule)
+
+<!--
 
 ## Week 9
 
