@@ -12,9 +12,9 @@
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
 - [Week 8a](#week-8a) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
-- [Week 9](#week-8) - Introduction to Arduino, electricity cont.
-- [Week 10](#week-9) - Analog and digital I/O
-- [Week 8b](#week-10) - Sound, movement, circuit schematics, No class Apr 11
+- [Week 9](#week-9) - Introduction to Arduino, electricity cont.
+- [Week 10](#week-10) - Analog and digital I/O
+- [Week 8b](#week-8b) - Sound, movement, circuit schematics, No class Apr 11
 - [Week 11](#week-11) - Connecting Arduino to p5.js
 - [Week 12](#week-12) - Motors
 - [Week 13](#week-13) - Circuit debugging, soldering, fabricating
@@ -1883,6 +1883,19 @@ Make sure everything is working
 [Back to top](#weekly-schedule)
 
 ## Week 9
+
+Daito Manabe
+
+- [muscle(smiles)](https://www.youtube.com/watch?v=YxdlYFCp5Ic)
+- [teeth led](https://www.youtube.com/watch?v=QsWc58zmBKI)
+- [11 play box projection](https://www.youtube.com/watch?time_continue=1&v=H_eAkJ_o-pk)
+- [dynamic vr display view dependent tracking](https://www.youtube.com/watch?time_continue=24&v=G7ZQ4KiX1JE)
+- [11 play](https://www.youtube.com/watch?v=HQLORg5COiU)
+    - [research](https://research.rhizomatiks.com/s/works/24drones/)
+- [Nosaj Thing](https://www.youtube.com/watch?v=_woNBiIyOKI)
+- [Phosphere](https://www.youtube.com/watch?v=El82ewNJdNs)
+- [Border](https://www.youtube.com/watch?time_continue=6&v=gpE20khn8R0)
+- [Ok Go](https://www.youtube.com/watch?time_continue=6&v=LgmxMuW6Fsc)
 
 ### Arduino Digital / Analog IO
 
