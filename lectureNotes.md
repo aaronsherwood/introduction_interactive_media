@@ -1914,15 +1914,15 @@ What is going on?
 
 Let's extend this circuit to the breadboard:
 
-![](media/ArduinoControllingLED_schem.png)
-![](media/ArduinoControllingLED_bb.png)
+![](media/ledArduinoSchematic.png)
+![](media/ledArduino.png)
 
 #### Digital Input
 
 Adding a switch
 
-![](media/ArduinoLEDMomentarySwitch_schem.png)
-![](media/ArduinoLEDMomentarySwitch_bb.png)
+![](media/button_LED_Arduino_schematic.png)
+![](media/button_LED_Arduino.png)
 
 ````
 // Code for one switch and LEDs
