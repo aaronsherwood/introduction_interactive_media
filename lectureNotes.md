@@ -1924,7 +1924,25 @@ Adding a switch
 ![](media/button_LED_Arduino_schematic.png)
 ![](media/button_LED_Arduino.png)
 
-Maintaining state and getting the first button press only:
+Example of getting a button press to momentarily turn on an LED:
+````
+const int led0 = 2;
+const int buttonPin = 3;
+
+void setup() {
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int buttonState = digitalRead(buttonPin);
+  Serial.println(buttonState);
+  digitalWrite(led0, buttonState);
+}
+````
+
+Example: Maintaining state of an LED and button. To change an LED to either be continuously on or off we need to use global variables to change its state. We also want to make sure that when we press a button we only read the first button press, and not all the subsequent presses that happen in a single moment. To do this, we need to keep track of what the previous button state was and only change the LED's state if the current state of the button is high and the state of the button in the previous frame was low. An important point here is to only set the previous button state after you've already used the variable to compare the current and the previous states.
 
 ````
 const int led0 = 2;
@@ -1934,15 +1952,12 @@ int prevButtonState = 0;
 int ledState = 0;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(led0, OUTPUT);
   pinMode(buttonPin, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  Serial.println(buttonState);
-  // put your main code here, to run repeatedly:
   buttonState = digitalRead(buttonPin);
 
   Serial.println(buttonState);
@@ -1955,10 +1970,9 @@ void loop() {
 
   prevButtonState = buttonState;
 }
-
 ````
 
-Blink without delay:
+Example: Blink without delay. DON'T USE DELAY IN YOUR SKETCHES. This will make it so your interactions are not consistent. We can use millis() to test a certain interval to see when to blink the LED.
 
 ````
 const int led0 = 2;
