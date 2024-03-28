@@ -1924,67 +1924,60 @@ Adding a switch
 ![](media/button_LED_Arduino_schematic.png)
 ![](media/button_LED_Arduino.png)
 
+Maintaining state and getting the first button press only:
+
 ````
-// Code for one switch and LEDs
-// Wiring:
-// - switch on Pin A2
-// - LED on Pin 8
-// - LED on Pin 13
+const int led0 = 2;
+const int buttonPin = 3;
+int buttonState = 0;
+int prevButtonState = 0;
+int ledState = 0;
 
 void setup() {
-  pinMode(8, OUTPUT);
-  pinMode(13, OUTPUT);
-  pinMode(A2, INPUT);
+  // put your setup code here, to run once:
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
+  Serial.println(buttonState);
+  // put your main code here, to run repeatedly:
+  buttonState = digitalRead(buttonPin);
 
-  int switchPosition = digitalRead(A2);
+  Serial.println(buttonState);
 
-  if (switchPosition == HIGH) {
-    digitalWrite(8, LOW);   
-    digitalWrite(13, HIGH); // turn the LED on (HIGH is the voltage level)
-  } else  {
-    digitalWrite(8, HIGH);    
-    digitalWrite(13, LOW); // turn the LED off by making the voltage LOW
+  if (buttonState == HIGH && prevButtonState != HIGH){
+    ledState = !ledState;
   }
+
+  digitalWrite(led0, ledState);
+
+  prevButtonState = buttonState;
 }
-````
-
-An example:
 
 ````
 
-const int pushButton = A2;
-const int redLEDPin = A0;
-const int greenLEDPin = 8;
+Blink without delay:
+
+````
+const int led0 = 2;
+int ledState = 0;
+unsigned long timer = 0;
+int interval = 500;
 
 void setup() {
-  pinMode(redLEDPin, OUTPUT);
-  pinMode(greenLEDPin, OUTPUT);
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-
-  int buttonState = digitalRead(pushButton);
-
-  if (buttonState == HIGH) {
-    digitalWrite(redLEDPin, HIGH);
-    digitalWrite(greenLEDPin, HIGH);
-    delay(500);
-    digitalWrite(greenLEDPin, LOW);
-    delay(300);
-    digitalWrite(redLEDPin, LOW);
-    digitalWrite(greenLEDPin, HIGH);
-    delay(700);
+  if (millis()>timer){
+    ledState = !ledState;
+    timer = millis()+interval;
   }
-  allOff();
-  delay(1000);
-}
-
-void allOff() {
-  digitalWrite(redLEDPin, LOW);
-  digitalWrite(greenLEDPin, LOW);
+  digitalWrite(led0, ledState);
 }
 ````
 
