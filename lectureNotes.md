@@ -2014,7 +2014,7 @@ switch is pressed.
 Using two switches you can select between four patterns.
 How is that possible?
 
-### Week 10 - 4/2 
+### Week 10 
 #### Plan for today: 
 - See assignments
 - Analog Input
