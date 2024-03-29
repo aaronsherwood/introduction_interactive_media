@@ -2017,6 +2017,7 @@ How is that possible?
 ### Week 10 
 #### Plan for today: 
 - See assignments
+- Data types
 - Analog Input
 - Analog Output
 
@@ -2057,8 +2058,8 @@ can store a value from 0-255. Here are is a list of the types:
 
 Build this circuit. Try to follow the schematic and not the breadboard view:
 
-![](media/ArduinoPhotoresistor_schem.png)
-![](media/ArduinoPhotoresistor_bb.png)
+![](media/pot_schematic.png)
+![](media/pot_diagram.png)
 
 ```
 /*
@@ -2066,7 +2067,7 @@ Build this circuit. Try to follow the schematic and not the breadboard view:
 
   Reads an analog input on pin 0, prints the result to the Serial Monitor.
   Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
-  Attach the center pin of a potentiometer to pin A2, and the outside pins to +5V and ground.
+  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
 
   This example code is in the public domain.
 
@@ -2082,7 +2083,7 @@ void setup() {
 // the loop routine runs over and over again forever:
 void loop() {
   // read the input on analog pin
-  int sensorValue = analogRead(A2);
+  int sensorValue = analogRead(A0);
   // print out the value you read:
   Serial.println(sensorValue);
   delay(1);  // delay in between reads for stability
@@ -2098,6 +2099,7 @@ void loop() {
 - Since you have so few analog input pins, when you decide which pins to use
 	for which device, reserve the analog input pins for analog input devices
 	as much as possible
+- Will get 10 bits from analogRead: 0-1023
 
 Do you see a similarity between this circuit and 
 something we learned earlier?
@@ -2113,9 +2115,16 @@ What other sensors do we have in the kit?
 
 Which ones are resistive?
 
-#### Potentiometer
+#### Voltage Divider
+![](media/voltagedivider.jpeg)
 
-[Here](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41/circuit-1b-potentiometer)
+#### Photoresistor
+
+![](media/photoresistor_schematic.png)
+![](media/photoresistor_diagram.png)
+
+#### Smoothing
+Remember this? `smoothedSensorValue += (sensorValue - smoothedSensorValue)*0.1;`
 
 #### Misc
 - Hand drawn schematics in your homework are fine!
@@ -2160,11 +2169,10 @@ Serial.print(secondValue);
 Serial.println();
 ````
 
-Here is the program we developed at the end of class:
 
 ````
-const int LED_PIN = 3;           // the PWM pin the LED is attached to
-const int POT_PIN = A2;
+const int LED_PIN = 2;           // the PWM pin the LED is attached to
+const int POT_PIN = A0;
 int brightness = 0;    // how bright the LED is
 
 // the setup routine runs once when you press reset:
