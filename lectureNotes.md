@@ -2116,7 +2116,7 @@ What other sensors do we have in the kit?
 Which ones are resistive?
 
 #### Voltage Divider
-![](media/voltagedivider.jpeg)
+![](media/volt_div.jpeg)
 
 #### Photoresistor
 
