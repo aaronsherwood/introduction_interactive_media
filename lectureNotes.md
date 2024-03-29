@@ -2014,6 +2014,8 @@ switch is pressed.
 Using two switches you can select between four patterns.
 How is that possible?
 
+[Back to top](#weekly-schedule)
+
 ### Week 10 
 #### Plan for today: 
 - See assignments
@@ -2194,11 +2196,13 @@ void loop() {
 #### In-class exercise
 
 1. Use one of the analogue sensors to select which of two LEDs lights up
-1. Use one of the analogue sensor to control how fast two LEDs alternate
-1. Use a momentary switch (often called a *pushbutton* or a *button* in the
+2. Use one of the analogue sensor to control how fast two LEDs alternate
+3. Use a momentary switch (often called a *pushbutton* or a *button* in the
 	 Arduino literature) to select a different range for mapping an analog
 	 sensor to an analog output device
-1. Use a potentiometer to select from 4 different behaviors of a circuit
+4. Use a potentiometer to select from 4 different behaviors of a circuit
+
+[Back to top](#weekly-schedule)
 
 <!--
 ## Week 11
