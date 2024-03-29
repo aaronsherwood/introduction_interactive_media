@@ -1924,67 +1924,74 @@ Adding a switch
 ![](media/button_LED_Arduino_schematic.png)
 ![](media/button_LED_Arduino.png)
 
+Example of getting a button press to momentarily turn on an LED:
 ````
-// Code for one switch and LEDs
-// Wiring:
-// - switch on Pin A2
-// - LED on Pin 8
-// - LED on Pin 13
+const int led0 = 2;
+const int buttonPin = 3;
 
 void setup() {
-  pinMode(8, OUTPUT);
-  pinMode(13, OUTPUT);
-  pinMode(A2, INPUT);
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-
-  int switchPosition = digitalRead(A2);
-
-  if (switchPosition == HIGH) {
-    digitalWrite(8, LOW);   
-    digitalWrite(13, HIGH); // turn the LED on (HIGH is the voltage level)
-  } else  {
-    digitalWrite(8, HIGH);    
-    digitalWrite(13, LOW); // turn the LED off by making the voltage LOW
-  }
+  int buttonState = digitalRead(buttonPin);
+  Serial.println(buttonState);
+  digitalWrite(led0, buttonState);
 }
 ````
 
-An example:
+Example: Maintaining state of an LED and button. To change an LED to either be continuously on or off we need to use global variables to change its state. We also want to make sure that when we press a button we only read the first button press, and not all the subsequent presses that happen in a single moment. To do this, we need to keep track of what the previous button state was and only change the LED's state if the current state of the button is high and the state of the button in the previous frame was low. An important point here is to only set the previous button state after you've already used the variable to compare the current and the previous states.
 
 ````
-
-const int pushButton = A2;
-const int redLEDPin = A0;
-const int greenLEDPin = 8;
+const int led0 = 2;
+const int buttonPin = 3;
+int buttonState = 0;
+int prevButtonState = 0;
+int ledState = 0;
 
 void setup() {
-  pinMode(redLEDPin, OUTPUT);
-  pinMode(greenLEDPin, OUTPUT);
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
+  buttonState = digitalRead(buttonPin);
 
-  int buttonState = digitalRead(pushButton);
+  Serial.println(buttonState);
 
-  if (buttonState == HIGH) {
-    digitalWrite(redLEDPin, HIGH);
-    digitalWrite(greenLEDPin, HIGH);
-    delay(500);
-    digitalWrite(greenLEDPin, LOW);
-    delay(300);
-    digitalWrite(redLEDPin, LOW);
-    digitalWrite(greenLEDPin, HIGH);
-    delay(700);
+  if (buttonState == HIGH && prevButtonState != HIGH){
+    ledState = !ledState;
   }
-  allOff();
-  delay(1000);
+
+  digitalWrite(led0, ledState);
+
+  prevButtonState = buttonState;
+}
+````
+
+Example: Blink without delay. DON'T USE DELAY IN YOUR SKETCHES. This will make it so your interactions are not consistent. We can use millis() to test a certain interval to see when to blink the LED.
+
+````
+const int led0 = 2;
+int ledState = 0;
+unsigned long timer = 0;
+int interval = 500;
+
+void setup() {
+  pinMode(led0, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
 }
 
-void allOff() {
-  digitalWrite(redLEDPin, LOW);
-  digitalWrite(greenLEDPin, LOW);
+void loop() {
+  if (millis()>timer){
+    ledState = !ledState;
+    timer = millis()+interval;
+  }
+  digitalWrite(led0, ledState);
 }
 ````
 
@@ -2007,11 +2014,9 @@ switch is pressed.
 Using two switches you can select between four patterns.
 How is that possible?
 
-<!--
-
-### Week 9.2 - 11/8 - Arduino Programming Syntax
+### Week 10 
 #### Plan for today: 
-- Discuss reading
+- See assignments
 - Analog Input
 - Analog Output
 
@@ -2024,12 +2029,18 @@ the language (e.g. how `for` loops are declared) is very similar.
 
 One of the main differences for simple Arduino programs is how variables are
 declared. We need to declare the *type* of the variable, for example on the Arduino Uno a `byte`
-can store a value from 0-255, an `int` can be used for values -32,768 to 32,767 and a `float` can
-be used for values like -2.1 and 20332.22.
+can store a value from 0-255. Here are is a list of the types:
 
-Storing a `float` in memory requires 32 bits (4 bytes). With the limited memory on
-the Arduino Uno (2k bytes of RAM) it's important for us as programmers to
-specify the type of each of our variables and understand how much memory they take up.
+- boolean (8 bit) - simple logical true/false
+- byte (8 bit) - unsigned number from 0-255
+- char (8 bit) - signed number from -128 to 127. The compiler will attempt to interpret this data type as a character in some circumstances, which may yield unexpected results
+- unsigned char (8 bit) - same as 'byte'; if this is what you're after, you should use 'byte' instead, for reasons of clarity
+- word (16 bit) - unsigned number from 0-65535
+- unsigned int (16 bit)- the same as 'word'. Use 'word' instead for clarity and brevity
+- int (16 bit) - signed number from -32768 to 32767. This is most commonly what you see used for general purpose variables in Arduino example code provided with the IDE
+- unsigned long (32 bit) - unsigned number from 0-4,294,967,295. The most common usage of this is to store the result of the millis() function, which returns the number of milliseconds the current code has been running
+- long (32 bit) - signed number from -2,147,483,648 to 2,147,483,647
+- float (32 bit) - signed number from -3.4028235E38 to 3.4028235E38. Floating point on the Arduino is not native; the compiler has to jump through hoops to make it work. If you can avoid it, you should. We'll touch on this later.
 
 - [Arduino Syntax Cheat Sheet](https://github.com/liffiton/Arduino-Cheat-Sheet)
 - [Arduino Memory](https://www.arduino.cc/en/Tutorial/Foundations/Memory)
@@ -2181,16 +2192,16 @@ void loop() {
 	 sensor to an analog output device
 1. Use a potentiometer to select from 4 different behaviors of a circuit
 
+<!--
+## Week 11
 
-## Week 10
-
-### Week 10.1 - 11/13 - Schematics, Circuit conventions
+### Week 11.1 - 4/2 Analog Input/Output
 
 #### Plan for today: 
-- Schematic conventions
-- Sound
-- Servo motor
+
 - PWM
+- Sound
+- Servo
 - Data Types
 - Circuit theory
 - Examples
