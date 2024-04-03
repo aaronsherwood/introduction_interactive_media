@@ -14,7 +14,7 @@
 - [Week 8](#week-8) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
 - [Week 9](#week-9) - Digital I/O
 - [Week 10](#week-10) - Analog I/O
-- [Week 11](#week-11) - Sound, movement, circuit schematics, No class Apr 11
+- [Week 11](#week-11) - Sound, servo
 - [Week 12](#week-12) - Connecting Arduino to p5.js
 - [Week 13](#week-13) - Motors
 - [Week 14](#week-14) - Final project due, course review
