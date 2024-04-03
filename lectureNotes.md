@@ -11,13 +11,12 @@
 - [Week 6](#week-6) - Computer Vision
 - [Week 7](#week-7) - Midterm presentations
 - SPRING BREAK
-- [Week 8a](#week-8a) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
+- [Week 8](#week-8) - Introduction to Arduino, electricity, No class Mar 19 (1st class back is Mar 21)
 - [Week 9](#week-9) - Digital I/O
 - [Week 10](#week-10) - Analog I/O
-- [Week 8b](#week-8b) - Sound, movement, circuit schematics, No class Apr 11
-- [Week 11](#week-11) - Connecting Arduino to p5.js
-- [Week 12](#week-12) - Motors
-- [Week 13](#week-13) - Circuit debugging, soldering, fabricating
+- [Week 11](#week-11) - Sound, movement, circuit schematics, No class Apr 11
+- [Week 12](#week-12) - Connecting Arduino to p5.js
+- [Week 13](#week-13) - Motors
 - [Week 14](#week-14) - Final project due, course review
 - [IM Show](#im-show) - IM End of Semester Show
 
@@ -1733,7 +1732,7 @@ Midterms! (and computer vision)
 
 ## SPRING BREAK / SPRING BREAK / SPRING BREAK
 
-## Week 8a
+## Week 8
 
 ### 3/21 - Introduction to Arduino
 
