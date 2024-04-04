@@ -2192,6 +2192,39 @@ void loop() {
 }
 ````
 
+Code from Class on Tuesday:
+````
+const int potentiometer = A0;
+const int led0 = 3;
+const int led1 = 5;
+const int photoResistor = A1;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(led0, OUTPUT);
+  pinMode(led1, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int potentiometerValue = analogRead(potentiometer);
+  delay(1);
+  int lightValue = analogRead(photoResistor);
+
+  // Serial.print("Light Value: ");
+  Serial.println(lightValue);
+
+  int pwmValue = map(potentiometerValue, 0, 1023, 0, 255);
+  analogWrite(led0, pwmValue);
+
+  lightValue = constrain(lightValue, 500, 800);
+  int photoLED = map(lightValue, 500, 800, 255, 0);
+
+  analogWrite(led1, photoLED);
+}
+````
+
 #### In-class exercise
 
 1. Use one of the analogue sensors to select which of two LEDs lights up
