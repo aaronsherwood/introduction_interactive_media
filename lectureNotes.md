@@ -2258,7 +2258,7 @@ Here is an example:
 ![](media/handDrawnSchematicExample.jpg)
 
 - [Fritzing](https://fritzing.org/) (~$8 download, simple)
-- [KiCad](https://www.kicad.org/) (open source, complex)
+- [Tinkercad](tinkercad.com) 
 
 #### Conventions: Schematics and Wire Colours
 
