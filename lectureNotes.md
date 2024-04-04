@@ -2236,14 +2236,11 @@ void loop() {
 
 [Back to top](#weekly-schedule)
 
-<!--
-## Week 11
-
-### Week 11.1 - 4/2 Analog Input/Output
+## Week 11 
+Sound and Servo
 
 #### Plan for today: 
 
-- PWM
 - Sound
 - Servo
 - Data Types
@@ -2335,8 +2332,6 @@ are
 	- That is why it is **important** to make connections to the correct side of a
 		component!
 
-### Week 10.2 - 11/15 - Sound, servos
-
 #### Sound
 
 **`tone()`**
@@ -2399,15 +2394,6 @@ page](https://www.arduino.cc/en/Reference/Servo)
 1. For these reasons it is best to avoid pins 0, 1, and 13. If you run out of
 	 pins and need to use them there are ways around this.
 
-#### Data Types
-
-Unlike in p5.js, you must declare what type of data you want to store in a
-variable:
-
-- `int` - whole numbers only
-- `float` - a number with a fractional part ('floating point number')
-- `char` - a character
-- `boolean` - only either `true` or `false`
 
 
 #### In-class exercises
@@ -2562,7 +2548,7 @@ void loop() {
 ````
 [Back to top](#weekly-schedule)
 
-
+<!--
 ## Week 11
 
 ### Week 11.1 - 11/20 - Serial Communication
