@@ -2239,7 +2239,17 @@ void loop() {
 ## Week 11 
 Sound and Servo
 
-#### Plan for today: 
+#### Examples
+- peter vogel [https://vimeo.com/19780802](https://vimeo.com/19780802)
+- field: jacks performance: [https://vimeo.com/149364292](https://vimeo.com/149364292)
+- giant instrument: [https://vimeo.com/95706212](https://vimeo.com/95706212)
+- nyc subway: [https://www.youtube.com/watch?v=QjwxE_kI5wA](https://www.youtube.com/watch?v=QjwxE_kI5wA)
+- interface example: [https://www.youtube.com/watch?v=5B-0zGBwMx4](https://www.youtube.com/watch?v=5B-0zGBwMx4)
+- me robospiel: [https://vimeo.com/50586230](https://vimeo.com/50586230)
+- servo drum machine: [https://www.youtube.com/watch?v=EXgQfelajZc](https://www.youtube.com/watch?v=EXgQfelajZc)
+- servo harp: [https://www.youtube.com/watch?v=CtvZJb9VMkE](https://www.youtube.com/watch?v=CtvZJb9VMkE)
+- block example: [https://www.youtube.com/watch?v=0HobOt06gOI](https://www.youtube.com/watch?v=0HobOt06gOI)
+- chordocentric: [http://loisliow.netii.net/project2.html](http://loisliow.netii.net/project2.html)
 
 - Sound
 - Servo
