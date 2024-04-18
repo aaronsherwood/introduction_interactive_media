@@ -2254,161 +2254,11 @@ Sound and Servo
 #### Plan
 - Sound
 - Servo
-- Data Types
-- Circuit theory
-- Examples
 
-#### Schematics
-
-- [How to Read a Schematic (Sparkfun)](https://learn.sparkfun.com/tutorials/how-to-read-a-schematic/all)
-- Hand-drawn
-  - Best way to get started! Think about your circuit, then draw it
-
-Here is an example:
-
-![](media/handDrawnSchematicExample.jpg)
-
-- [Fritzing](https://fritzing.org/) (~$8 download, simple)
-- [Tinkercad](tinkercad.com) 
-
-#### Conventions: Schematics and Wire Colours
-
-- When drawing schematics
-
-	- All **sensors** on the **left**
-	- All **inputs** on the **left** side of the Arduino 
-	- All **actuators** on the **right**
-	- All **outputs** on the **right** side of the Arduino 
-	- There are exceptions e.g.
-		- If using CAD you can't control where the pins are on Arduino
-		- Some devices (e.g. the ultrasonic distance measuring sensor) that have
-			both inputs and outputs
-
-- When wiring your circuits
-
-	- All **5V** connections should use **red** wire, 
-	and don't use red for anything else
-	- All **GND** connections should use **black** wire,
-	and don't use black for anything else
-		- If you run out of black you may either
-			- Color some white cables black with a Sharpie
-			- Dedicate green as an additional black, and then
-			don't use green for anything else either
-	- All other connections can use any other colors
-	- If you use the buses on the sides of the breadboard
-		- Red bus for 5V only
-		- Black or Blue bus for GND only
-
-
-#### Circuits
-
-Some theory that might help you think about why circuits are they way they
-are
-- Important concepts:
-	- Voltage 
-		- Voltage is a relative quantity so it's always measured or identified
-			relative to some other point (usually a common reference point such as
-			"ground")
-		- Can be thought of the "pressure" applied to the electrons
-		- Analogous to holding a brick at a certain height above the floor. Relative
-			to the floor, the brick has a certain amount of potential energy
-		- Voltage exists whether or not there is a circuit
-	- Resistance 
-		- The resistance the electrons face as they try to get through
-		components. 
-		- Analogous to a traffic jam on a road
-		- Conductors (wires) have zero resistance (for our purposes)
-		- All components have some sort of "resistance"
-		- Resistance is a property of a component and therefore
-		exists whether or not there is a circuit
-	- Current  
-		- The rate of flow of electrons through a circuit (electrons/second)
-		- Somewhat analogous to litres/hour or cars/hour
-		- **Current only exists when there is a circuit**
-- If you measure the voltage between any two points, the voltage will not
-	change as you move to different places on the **wire**. 
-		However if you cross
-		a component the voltage might be different on the other side of the
-		component
-- If you measure current through components connected in 
-	series the current will not change. This is because **all** the electrons
-	that go through the first component have to go through the rest. No
-	electrons can leave the path, and no new ones can enter.
-		However if there are any branches some electrons might go on the
-		branches and thus the current will drop.
-- Review
-- Voltage does **not** change in a conductor
-	- That is why we can connect things to the same node in any order
-- Voltage **does** change when you go across a component
-	- That is why it is **important** to make connections to the correct side of a
-		component!
-
-#### Sound
-
-**`tone()`**
-
-- [Schematic](https://www.arduino.cc/en/Tutorial/ToneMelody)
-- Before you try that code, just try 
-`tone(spkrPin, 440);`
-and
-`tone(spkrPin, 440, 1000);`
-- [Reference
-page](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/)
-
-**Notes**
-- "Use of the `tone()` function will interfere with PWM output on pins 3 and 11"
-	- The word "intefere" is rather vague. 
-	I think they mean that it 
-	prevents `analogWrite()` from working on pins 3 and 11
-- The `tone()` function is *non-blocking*
-- Arduino supports tabs just like in p5.js
-- Arduino has arrays just like in p5.js
-- What is resistor for? 
-	- [What is a resistor?](https://www.atlearner.com/2020/02/what-is-resistor.html)
-	- LED needs a resistor to limit current so it doesn't burn out
-	- LDR needs a resistor to form a voltage divider
-	- Piezo buzzer neither burns out nor needs a voltage divider
-	- So why a resistor?
-
-#### Servo motor
-
-- [Schematic](https://www.arduino.cc/en/Tutorial/Knob)
-- [Reference
-page](https://www.arduino.cc/en/Reference/Servo)
-
-
-**Notes**
-- Use of the servo library disables `analogWrite()` (PWM) on pins 9 and 10
-- The `Servo.write()` function is *non-blocking*
-
-#### More about PWM
-- How do you suppose `analogWrite()` makes an LED dimmer?
-- [PWM](https://www.ekwb.com/blog/what-is-pwm-and-how-does-it-work/)
-- What do `analogWrite()`, `tone()` and `Servo` have in common?
-- What is sound?
-- How does a servo motor
-	[work](https://lastminuteengineers.com/servo-motor-arduino-tutorial/)?
-
-**Notes**
-1. You may have noticed that the built-in LED blinks 3 times when you turn on
-	 your Arduino. In fact it does this every time it resets, which also happens
-	 when you upload a new program. Since this LED is connected directly to pin
-	 13, it means that whatever you have attached to pin 13 will be activated 3
-	 times briefly whenver the Arduino resets. So, if you make a big robot, 
-	 you probably should not use pin 13 for the motor
-1. Pins 0 and 1 are used for communication with your laptop, and this has two
-	 effects:
-	1. Connecting anything to pins 0 or 1 might interfere with laptop
-		 communication (which includes uploading!)
-	2. Anything connected to pins 0 or 1 might be activated during
-		 communication!
-1. For these reasons it is best to avoid pins 0, 1, and 13. If you run out of
-	 pins and need to use them there are ways around this.
-
-
+#### Basic Wiring
+![](https://intro.nyuadim.com/wp-content/uploads/2020/11/Screen-Shot-2021-03-28-at-1.13.44-PM.png)
 
 #### In-class exercises
-
 
 1. Build a circuit with a switch (pushbutton) and a servo motor, and when you
 	 press the switch go to one position, when you don't press the switch go to
@@ -2427,136 +2277,196 @@ page](https://www.arduino.cc/en/Reference/Servo)
 5. Add a potentiometer which controls how fast the servo motor moves from one
 	 position to the next
 
-#### Examples
+#### Code Examples
 
-Some examples using the piezo speaker, servo motor, and a potentiometer:
+##### Basic use of tone:
+````
+void setup() {
+  //make a tone play
+  //parameters are: pin, pitch (frequency), duration
+  tone(4,440,500);
+}
+
+void loop() {
+
+}
 
 ````
-// Moving the servo motor first to one position and then to another,
-// and then stopping:
 
-const int servoPin = 7;
-
+##### Basic use of Servo:
+````
+//need to include servo library
 #include <Servo.h>
-Servo myservo;
+//make a servo object
+Servo servo;
+
+//position to change servo angle
+int position=0;
 
 void setup() {
-	myservo.attach(servoPin);
-	myservo.write(10);
-	delay(1000);
-	myservo.write(130);
+  //conenct the servo to pin 9
+  servo.attach(9);
 }
 
-void loop() { 
+void loop() {
+  //move the servo
+  if (millis()%50==0)
+    position = (position+1)%180;
+  servo.write(position);
 }
-````
 
 ````
-// Moving the servo motor first to one position and then to another,
-// continuously:
+##### Complex use of Servo and Tone:
 
-const int servoPin = 7;
+Make a second tab and name it "pitches.h". Paste the following code into that tab.
 
+###### pitches.h file
+````
+/*************************************************
+ * Public Constants
+ *************************************************/
+#define NOTE_B0  31
+#define NOTE_C1  33
+#define NOTE_CS1 35
+#define NOTE_D1  37
+#define NOTE_DS1 39
+#define NOTE_E1  41
+#define NOTE_F1  44
+#define NOTE_FS1 46
+#define NOTE_G1  49
+#define NOTE_GS1 52
+#define NOTE_A1  55
+#define NOTE_AS1 58
+#define NOTE_B1  62
+#define NOTE_C2  65
+#define NOTE_CS2 69
+#define NOTE_D2  73
+#define NOTE_DS2 78
+#define NOTE_E2  82
+#define NOTE_F2  87
+#define NOTE_FS2 93
+#define NOTE_G2  98
+#define NOTE_GS2 104
+#define NOTE_A2  110
+#define NOTE_AS2 117
+#define NOTE_B2  123
+#define NOTE_C3  131
+#define NOTE_CS3 139
+#define NOTE_D3  147
+#define NOTE_DS3 156
+#define NOTE_E3  165
+#define NOTE_F3  175
+#define NOTE_FS3 185
+#define NOTE_G3  196
+#define NOTE_GS3 208
+#define NOTE_A3  220
+#define NOTE_AS3 233
+#define NOTE_B3  247
+#define NOTE_C4  262
+#define NOTE_CS4 277
+#define NOTE_D4  294
+#define NOTE_DS4 311
+#define NOTE_E4  330
+#define NOTE_F4  349
+#define NOTE_FS4 370
+#define NOTE_G4  392
+#define NOTE_GS4 415
+#define NOTE_A4  440
+#define NOTE_AS4 466
+#define NOTE_B4  494
+#define NOTE_C5  523
+#define NOTE_CS5 554
+#define NOTE_D5  587
+#define NOTE_DS5 622
+#define NOTE_E5  659
+#define NOTE_F5  698
+#define NOTE_FS5 740
+#define NOTE_G5  784
+#define NOTE_GS5 831
+#define NOTE_A5  880
+#define NOTE_AS5 932
+#define NOTE_B5  988
+#define NOTE_C6  1047
+#define NOTE_CS6 1109
+#define NOTE_D6  1175
+#define NOTE_DS6 1245
+#define NOTE_E6  1319
+#define NOTE_F6  1397
+#define NOTE_FS6 1480
+#define NOTE_G6  1568
+#define NOTE_GS6 1661
+#define NOTE_A6  1760
+#define NOTE_AS6 1865
+#define NOTE_B6  1976
+#define NOTE_C7  2093
+#define NOTE_CS7 2217
+#define NOTE_D7  2349
+#define NOTE_DS7 2489
+#define NOTE_E7  2637
+#define NOTE_F7  2794
+#define NOTE_FS7 2960
+#define NOTE_G7  3136
+#define NOTE_GS7 3322
+#define NOTE_A7  3520
+#define NOTE_AS7 3729
+#define NOTE_B7  3951
+#define NOTE_C8  4186
+#define NOTE_CS8 4435
+#define NOTE_D8  4699
+#define NOTE_DS8 4978
+````
+###### arduino file
+````
 #include <Servo.h>
-Servo myservo;
+#include "pitches.h"
+
+Servo servo;
+int servoPos = 100;
+int whichNote = 0;
+int notes[10] = {NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_A4, NOTE_B4, NOTE_C5, NOTE_D5, NOTE_E5};
+int durations[10];
+int servoDirection = 1;
 
 void setup() {
-	myservo.attach(servoPin);
+  servo.attach(9);
+  pinMode(4, OUTPUT);
+  Serial.begin(9600);
+
+  // set the durations with a random coinflip
+  for (int i = 0; i < 10; i++) {
+    int coinFlip = random(2);
+    if (coinFlip == 0)
+      durations[i] = 8;
+    else
+      durations[i] = 4;
+  }
 }
 
 void loop() {
-	myservo.write(10);
-	delay(1000);
-	myservo.write(130);
-	delay(1000);
+
+  int rate = 200;
+ 
+  // get the current time
+  unsigned long currentTime = millis();
+
+  // trigger a note
+  if (currentTime % rate == 0  ) {
+    tone(4, notes[whichNote], random(100, 400));
+    whichNote = random(10);
+    //delay is necessary for the servo to work later
+    delay(1);
+  }
+
+  // do the servo at half speed
+  if (currentTime % (rate*2) == 0  ) {
+    servoPos += 50*servoDirection;
+    servoDirection*=-1;
+    servo.write(servoPos);
+  } 
 }
 ````
 
-````
-// Minimal example of the tone() function
-// Make a tone, never stop
 
-const int spkrPin = 7;
-
-void setup() {
-	tone(spkrPin, 440); // starts a tone on pin 7 at frequency 440
-}
-
-void loop() {
- // Arduino always needs a loop, even if it's empty
-}
-````
-
-Is the `tone()` function blocking? 
-
-````
-// If tone() is a blocking function, the LED will be off while the tone sounds
-// If the LED comes on as soon as the tone starts, tone() is non-blocking
-const int spkrPin = 7;
-
-void setup() {
-	pinMode(LED_BUILTIN, OUTPUT);
-
-	digitalWrite(LED_BUILTIN, LOW);
-	tone(spkrPin, 440, 1500); // starts a tone and then automatically stops it after 1500 milliseconds
-	digitalWrite(LED_BUILTIN, HIGH);
-}
-
-void loop() {
-}
-````
-
-````
-// Using a potentiometer to control the position of a servo motor
-
-#include <Servo.h>
-
-Servo myservo;  // create servo object to control a servo
-
-int potpin = A0;  // analog pin used to connect the potentiometer
-
-void setup() {
-	myservo.attach(9);  // attaches the servo on pin 9 to the servo object
-}
-
-void loop() {
-	int val = analogRead(potpin); // reads the value of the potentiometer (value between 0 and 1023)
-	val = map(val, 0, 1023, 0, 180); // scale it for use with the servo (value between 0 and 180)
-	myservo.write(val);   // sets the servo position according to the scaled value
-	delay(15);            // waits for the servo to get there
-}
-````
-
-````
-	// Use a potentiometer to control the position of a servo motor
-	// and the pitch of a tone
-
-	#include <Servo.h>
-	Servo myservo;
-
-	void setup() {
-		// initialize serial communication at 9600 bits per second:
-		Serial.begin(9600);
-		myservo.attach(7);
-	}
-
-	void loop() {
-		// read the input on analog pin 0:
-		int sensorValue = analogRead(A2);
-		// print out the value you read:
-		Serial.println(sensorValue);
-
-		// servo motor stuff
-		int servoPosition = map(sensorValue, 0, 1023, 0, 180);
-		myservo.write(servoPosition);
-
-		// piezo buzzer stuff
-  int pitch = map(sensorValue, 0, 1023, 200, 4000);
-  tone(8, pitch);
-
-  delay(1);        // delay in between reads for stability
-}
-````
 [Back to top](#weekly-schedule)
 
 <!--
