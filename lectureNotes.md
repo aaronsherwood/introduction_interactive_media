@@ -2278,7 +2278,7 @@ Sound and Servo
 	 position to the next
 
 #### Timers
-The Arduino Uno has three timers which each have dedicated uses. Each timer can only do one thing at a time, so you'll have to be strategic in how you use them.
+The Arduino Uno has three timers which each have dedicated uses. If you're trying to do many things requiring a timer then you'll have to be strategic in how you use them.
 - Timer0 – used for millis(), micros(), delay() and PWM on pins 5 & 6
 - Timer1 – used for Servos, the WaveHC library and PWM on pins 9 & 10
 - Timer2 – used by Tone and PWM on pins 3 & 11
