@@ -2465,37 +2465,21 @@ void loop() {
 
 [Back to top](#weekly-schedule)
 
-<!--
-## Week 11
 
-### Week 11.1 - 11/20 - Serial Communication
-#### Plan for today: 
+## Week 12 - Serial Communication
+
+#### Plan: 
 - Look at homework (musical instruments)
-- Debugging
 - Serial Communication
-
-
-##### Debugging
-
-If you want my help solving a problem in your assignment, do the following:
-1. Figure out the simplest circuit and program that demonstrates your problem
-1. Upload your schematic, code, and 
-the best picture you can take of your breadboard circuit to GitHub 
-1. Write a message on Discord, describing carefully
-	1. What you think should happen
-	1. What you observe happens
-
-What techniques have you learned to help you find problems?
-
+- Discuss Readings
+- Discuss Final Projects
 
 #### Serial Communication
 
 Communicating between p5.js and Arduino
 - Bidirectional communication example
-	- [Week 11 Bidirectional serial communication(p5js Sketch)](https://editor.p5js.org/mangtronix/sketches/s67XC0zT4)
-	- [Week 11 Arduino serial code (Arduino Sketch)](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week11Serial.ino)
-	- [p5.web-serial library (copy to Sketch files)](https://raw.githubusercontent.com/mangtronix/IntroductionToInteractiveMedia/master/code/p5.web-serial.js)
-	- [Week 11 Serial Communication Schematic](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week_11_Serial_schematic.png)
+	- [Week 12 Bidirectional serial communication(p5js Sketch)](https://editor.p5js.org/mangtronix/sketches/s67XC0zT4)
+	- ![](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week_11_Serial_schematic.png)
 
 - Before you incorporate this in your project, first test this as it is and
 	make sure you understand it
@@ -2512,7 +2496,7 @@ Communicating between p5.js and Arduino
 
 - Once it's working, duplicate the code and then start adapting it to your
 	needs:
-	- Duplicate Aaron's project so that you get the other files as well
+	- Duplicate the P5 project so that you get the other files as well
 	- Increase or decrease the amount of data that is exchanged. You may need
 		more, or you may need less. 
 	- Modify the data that is exchanged. You may need a digital sensor on the
@@ -2527,10 +2511,6 @@ Communicating between p5.js and Arduino
 	- [p5.js and Arduino serial communication - Send a digital sensor to a p5.js sketch (YouTube)](https://www.youtube.com/watch?v=feL_-clJQMs)
 	- Note: these use a different serial library, don't mix and match code between the ITP WebSerial code and Aaron's web-serial. You need to start with one example and continue to use the same software library
  
-
-### Week 11.2 - 11/22 - Serial communication
-#### Plan for today
-- Serial communication continued
   
 #### In-class exercise (break class into groups of 2-3 students)
 
@@ -2543,7 +2523,7 @@ Communicating between p5.js and Arduino
 	can control the wind from one analog sensor 
 
 
-#### Discussion
+#### Discussion of a *Brief Rant*
 - What did the writer mean by Vision?
 - Do you agree with the writer when he says future tech neglects the
 	importance of hands?
@@ -2558,32 +2538,29 @@ Communicating between p5.js and Arduino
 	does it evolve with practice?
 - Does experiential perspective helps in creating visionary designs or does it
 	fades your vision?
-
-
-## Week 12
-### Week 12.1 - 11/27 - Motors, soldering, fabrication
-
-#### Plan for today: 
-- Discussion
-- Motors
-- Soldering
-- Fabrication and Construction Techniques
-
-
+ 
 #### Discussion of *Design Meets Disability*
 
-1. Considering only modern day technology like your phones, can you identify
+- Considering only modern day technology like your phones, can you identify
 	 any "features" that are implemented to help people with certain
 	 disabilities
-1. Why did glasses become a matter of fashion and prostatic limbs are still
+- Why did glasses become a matter of fashion and prostatic limbs are still
 	 conservative in design, when both of them are disability aids?
-1. How can we make sure that this narrative navigates towards more inclusive
+- How can we make sure that this narrative navigates towards more inclusive
 	 and keep the 'design in design' for disabilities?
-1. How can the language we use to address disability-wear affect our approach
+- How can the language we use to address disability-wear affect our approach
 	 towards such designs? E.g. eyewear vs hearing aids?
-1. In the case of glasses, the author mentions “what others see is more
+- In the case of glasses, the author mentions “what others see is more
 	 important than what you see yourself” - do you guys agree?
 
+
+## Week 12 & a half (Legislative day on Sunday)
+### Motors, soldering, fabrication
+
+#### Plan for today: 
+- Fabrication and Construction Techniques
+- Soldering
+- Motors
 
 #### Motors
 
@@ -2662,118 +2639,33 @@ it  would just be more complicated)
 In addition to the bigger transistors, the Motor Driver
 includes an H-bridge which allows us to control rotation direction
 
-Circuit Schematic
+##### Motor Driver
 
-![](media/arduinoSparkFunMotorDriver_schem.jpg)
+Circuit
 
-How did I choose which pins to use?
-- Never use pins 0 and 1 (dedicated for USB communication)
-- Avoid pin 13 if possible (it flashes 3 times on reset)
-- Directional control pins (ain1, ain2, bin1, bin2) only require
-	digital signals so avoid pins with extra functionality 
-	(analog input, SPI, PWM)
-- Inclusion of the servo library 
-	disables `analogWrite()` on pins 9 and 10
-	(I'm not using the servo library now but perhaps I'll add it later)
-- Use of the `tone()` function 
-	disables `analogWrite()` on pins 3 and 11
-	(I'm not using the `tone()` function now but perhaps I'll add it later)
-- This leaves PWM pins 5 and 6 for the speed controls (pwma and pwmb)
-- Might as well choose nearby digital pins
+![](https://intro.nyuadim.com/wp-content/uploads/2020/11/sparkfunMotorDriver.jpg)
 
-[Code - Week 12 - Simple motor driver (DMA GitHub)](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week%2012%20-%20Simple%20Motor%20Driver/Week%2012%20-%20Simple%20Motor%20Driver.ino)
+Link for Motor Shield tutorial: [https://learn.sparkfun.com/tutorials/tb6612fng-hookup-guide](https://learn.sparkfun.com/tutorials/tb6612fng-hookup-guide)
 
-
-````
-
-const int ain1Pin = 3;
-const int ain2Pin = 4;
-const int pwmAPin = 5;
-
-const int bin1Pin = 8;
-const int bin2Pin = 7;
-const int pwmBPin = 6;
-
-
-void setup() {
-  pinMode(ain1Pin, OUTPUT);
-  pinMode(ain2Pin, OUTPUT);
-  pinMode(pwmAPin, OUTPUT); // not needed really
-}
-
-void loop() {
-  // turn in one direction, full speed
-  Serial.println("full speed");
-  analogWrite(pwmAPin, 255);
-  digitalWrite(ain1Pin, HIGH);
-  digitalWrite(ain2Pin, LOW);
-  // stay here for a second
-  delay(1000);
-
-  // slow down
-  Serial.println("slowing down");
-  int speed = 255;
-  while (speed--) {
-    analogWrite(pwmAPin, speed);
-    delay(20);
-  }
-}
-
-````
-
-Here is the code that Noah developed to control the motor speed and
-direction using a potentiometer:
-
-[Code - Week 12 - Motor Driver - 2 channel (DMA GitHub)](https://github.com/mangtronix/IntroductionToInteractiveMedia/blob/master/code/Week%2012%20-%20Motor%20Driver%202%20channel/Week%2012%20-%20Motor%20Driver%202%20channel.ino)
-
-````
-const int ain1Pin = 3;
-const int ain2Pin = 4;
-const int pwmAPin = 5;
-
-const int bin1Pin = 8;
-const int bin2Pin = 7;
-const int pwmBPin = 6;
-
-const int potPin = A5;
-
-
-void setup() {
-  pinMode(ain1Pin, OUTPUT);
-  pinMode(ain2Pin, OUTPUT);
-  pinMode(pwmAPin, OUTPUT); // not needed really
-}
-
-void loop() {
-  int potVal = analogRead(potPin);
-  delay(20);
-  if (potVal > 1023 / 2) { //counterclockwise
-    digitalWrite(ain1Pin, HIGH);
-    digitalWrite(ain2Pin, LOW);
-    analogWrite(pwmAPin, potVal / 4);
-  } else { //clockwise
-    digitalWrite(ain1Pin, LOW);
-    digitalWrite(ain2Pin, HIGH);
-    analogWrite(pwmAPin, 255 - potVal / 4);
-  }
-}
-````
-
-[Sparkfun Inventor's Kit - 5a Motor Basics](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41/circuit-5a-motor-basics)
-- Tutorial for using motor driver board to control yellow geared motor
-
-[Sparkfun Inventor's Kit - 5C: Autonomous Robot](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41/circuit-5c-autonomous-robot)
-- Set your Arduino free to roam!
-
+Download the library here: [TB6612FNG ARDUINO LIBRARY](https://github.com/sparkfun/SparkFun_TB6612FNG_Arduino_Library/archive/master.zip). In the Arduino IDE, navigate to Sketch > Include Library > Add .ZIP Library. At the top of the drop down list, select the option to "Add .ZIP Library''. Once the library is installed, open the example code included in the Library through the Arduino IDE’s examples.
 
 [Back to top](#weekly-schedule)
 
-### Week 12.2 - 11/29 - NO CLASS - Legislative Friday
-
-[Back to top](#weekly-schedule)
+<!--
 
 ## Week 13
-### Week 13.1 - 12/4 - NO CLASS - Holiday!
+
+##### Debugging
+
+If you want my help solving a problem in your assignment, do the following:
+1. Figure out the simplest circuit and program that demonstrates your problem
+1. Upload your schematic, code, and 
+the best picture you can take of your breadboard circuit to GitHub 
+1. Write a message on Discord, describing carefully
+	1. What you think should happen
+	1. What you observe happens
+
+What techniques have you learned to help you find problems?
 
 ### Week 13.2 - 12/6 - Debugging, look at final projects, work session
 - Look at final project plans
