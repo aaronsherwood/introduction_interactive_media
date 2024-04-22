@@ -2466,7 +2466,8 @@ void loop() {
 [Back to top](#weekly-schedule)
 
 
-## Week 12 - Serial Communication
+## Week 12
+### Serial Communication
 
 #### Plan: 
 - Look at homework (musical instruments)
