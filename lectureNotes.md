@@ -2539,21 +2539,6 @@ Communicating between p5.js and Arduino
 	does it evolve with practice?
 - Does experiential perspective helps in creating visionary designs or does it
 	fades your vision?
- 
-#### Discussion of *Design Meets Disability*
-
-- Considering only modern day technology like your phones, can you identify
-	 any "features" that are implemented to help people with certain
-	 disabilities
-- Why did glasses become a matter of fashion and prostatic limbs are still
-	 conservative in design, when both of them are disability aids?
-- How can we make sure that this narrative navigates towards more inclusive
-	 and keep the 'design in design' for disabilities?
-- How can the language we use to address disability-wear affect our approach
-	 towards such designs? E.g. eyewear vs hearing aids?
-- In the case of glasses, the author mentions “what others see is more
-	 important than what you see yourself” - do you guys agree?
-
 
 ## Week 12 & a half (Legislative day on Sunday)
 ### Motors, soldering, fabrication
@@ -2656,6 +2641,20 @@ Download the library here: [TB6612FNG ARDUINO LIBRARY](https://github.com/sparkf
 
 ## Week 13
 
+#### Discussion of *Design Meets Disability*
+
+- Considering only modern day technology like your phones, can you identify
+	 any "features" that are implemented to help people with certain
+	 disabilities
+- Why did glasses become a matter of fashion and prostatic limbs are still
+	 conservative in design, when both of them are disability aids?
+- How can we make sure that this narrative navigates towards more inclusive
+	 and keep the 'design in design' for disabilities?
+- How can the language we use to address disability-wear affect our approach
+	 towards such designs? E.g. eyewear vs hearing aids?
+- In the case of glasses, the author mentions “what others see is more
+	 important than what you see yourself” - do you guys agree?
+
 ##### Debugging
 
 If you want my help solving a problem in your assignment, do the following:
@@ -2694,6 +2693,8 @@ What techniques have you learned to help you find problems?
   - [Adafruit Guide to Excellent Soldering](https://learn.adafruit.com/adafruit-guide-excellent-soldering)
   - Soldering demo - button to solid core wires
 - Work on projects
+
+
 
 
 ##### Blink Without `delay()`
