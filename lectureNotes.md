@@ -2544,7 +2544,7 @@ Communicating between p5.js and Arduino
 ### Motors, soldering, fabrication
 
 #### Plan for today: 
-- Fabrication and Construction Techniques
+- Fabrication and Construction Techniques - [laser cutter slide deck](https://docs.google.com/presentation/d/1l6x9M0nAiH3uMHQKQtethxi2cAhx7vBo1srYkkMT4bA/edit?usp=sharing)
 - Soldering
 - Motors
 
