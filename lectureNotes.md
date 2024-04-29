@@ -2540,7 +2540,7 @@ Communicating between p5.js and Arduino
 - Does experiential perspective helps in creating visionary designs or does it
 	fades your vision?
 
-## Week 12 & a half (Legislative day on Sunday)
+## Week 13 
 ### Motors, soldering, fabrication
 
 #### Plan for today: 
@@ -2636,6 +2636,15 @@ Link for Motor Shield tutorial: [https://learn.sparkfun.com/tutorials/tb6612fng-
 Download the library here: [TB6612FNG ARDUINO LIBRARY](https://github.com/sparkfun/SparkFun_TB6612FNG_Arduino_Library/archive/master.zip). In the Arduino IDE, navigate to Sketch > Include Library > Add .ZIP Library. At the top of the drop down list, select the option to "Add .ZIP Library''. Once the library is installed, open the example code included in the Library through the Arduino IDE’s examples.
 
 [Back to top](#weekly-schedule)
+
+##### Fullscreen
+
+- Running sketch fullscreen
+  - [p5js fullscreen()](https://p5js.org/reference/#/p5/fullscreen) 
+  - [Responsive fullscreen (p5js sketch)](https://editor.p5js.org/mangtronix/sketches/t4G0erH1B)
+    - Press 'f' to go fullscreen - sketch automatically resizes to full screen size
+   
+- Local Serve in VS Code [https://www.geeksforgeeks.org/how-to-enable-live-server-on-visual-studio-code/](https://www.geeksforgeeks.org/how-to-enable-live-server-on-visual-studio-code/)
 
 <!--
 
