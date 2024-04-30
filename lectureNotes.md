@@ -2551,7 +2551,8 @@ Communicating between p5.js and Arduino
 #### Motors
 
 Zimoun - [https://vimeo.com/7235817](https://vimeo.com/7235817)
-Class Electromagnetism/Motors Slidedeck - [https://github.com/aaronsherwood/introduction_interactive_media/blob/master/media/motors_electromagnetism_intro19.pdf](https://github.com/aaronsherwood/introduction_interactive_media/blob/master/media/motors_electromagnetism_intro19.pdf)
+
+Class Electromagnetism/Motors [Slidedeck](https://github.com/aaronsherwood/introduction_interactive_media/blob/master/media/motors_electromagnetism_intro19.pdf)
 
 An LED can make light, what makes motion?
 
